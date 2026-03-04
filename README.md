@@ -119,3 +119,28 @@ This project demonstrates strong frontend architecture, dynamic DOM manipulation
 ---
 
 # 📂 Folder Structure
+
+bookmyseat-theatre-booking-system/
+│
+├── index.html
+├── seats.html
+├── payment.html
+├── success.html
+│
+├── css/
+│   ├── style.css
+│   ├── seats.css
+│   ├── payment.css
+│
+├── js/
+│   ├── main.js
+│   ├── seats.js
+│   ├── payment.js
+│
+└── images/
+    ├── movie1.jpg
+    ├── movie2.jpg
+    ├── movie3.jpg
+    ├── movie4.jpg
+    ├── movie5.jpg
+    └── movie6.jpg
