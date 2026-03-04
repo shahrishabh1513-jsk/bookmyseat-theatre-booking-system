@@ -23,6 +23,9 @@ Smart Theatre Ticket Booking System with Real-Time Seat Selection & Dynamic Pric
 
 ---
 
+# 📸 Screenshots
+
+---
 # 🎬 Project Overview
 
 **BookMySeat** is a fully responsive cinema ticket booking web application built using pure **HTML5, CSS3, and Vanilla JavaScript**.
@@ -118,21 +121,6 @@ This project demonstrates strong frontend architecture, dynamic DOM manipulation
 
 ---
 
-
----
-
-# 🧠 Key Concepts Implemented
-
-✅ Vanilla JavaScript (No Frameworks)  
-✅ DOM Manipulation  
-✅ Local Storage API  
-✅ Dynamic Pricing Logic  
-✅ CSS Grid & Flexbox Layout  
-✅ Multi-Page State Management  
-✅ Form Validation  
-✅ Responsive Design System  
-✅ Smooth UI Animations  
-
 ---
 
 # 🚀 Future Enhancements
@@ -157,4 +145,20 @@ This project demonstrates strong frontend architecture, dynamic DOM manipulation
 - PWA Support  
 - Backend integration  
 
-# 📸 Screenshots
+---
+
+<div align="center">
+
+## 👨‍💻 Author
+
+**Mo Fahim Raj**
+
+📧 [shahrishu1515@gmail.com](shahrishu1515@gmail.com)  
+🔗 [GitHub Profile]((https://github.com/shahrishabh1513-jsk))
+
+---
+
+⭐ If you like this project, consider giving it a star!
+
+</div>
+
