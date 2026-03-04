@@ -25,6 +25,20 @@ Smart Theatre Ticket Booking System with Real-Time Seat Selection & Dynamic Pric
 
 # 📸 Screenshots
 
+# 🏠 Home Page
+<img width="1874" height="889" alt="Screenshot 2026-03-04 205532" src="https://github.com/user-attachments/assets/f366031d-a105-46ca-8607-acbc5ba9ed63" />
+<img width="1749" height="706" alt="Screenshot 2026-03-04 205557" src="https://github.com/user-attachments/assets/68bcb967-a24a-46f1-b81c-e83081ed874b" />
+<img width="1237" height="712" alt="Screenshot 2026-03-04 205615" src="https://github.com/user-attachments/assets/a2bb9e3e-7e48-4bcd-b111-603cef2e3f44" />
+
+# 💺 Seat Selection Page
+<img width="1634" height="842" alt="Screenshot 2026-03-04 205752" src="https://github.com/user-attachments/assets/73aa676a-2497-47f4-b3bf-1abbee6c4ce9" />
+
+# 💳 Payment Page
+<img width="1722" height="686" alt="Screenshot 2026-03-04 210204" src="https://github.com/user-attachments/assets/36c9be8f-951b-465e-b0e3-7ae36584e587" />
+
+# ✅ Booking Success Page
+<img width="1512" height="717" alt="Screenshot 2026-03-04 210355" src="https://github.com/user-attachments/assets/6876fe6d-d7fe-4984-8a6c-2887ef032898" />
+
 ---
 # 🎬 Project Overview
 
@@ -154,8 +168,9 @@ This project demonstrates strong frontend architecture, dynamic DOM manipulation
 **Mo Fahim Raj**
 
 📧 Email: [shahrishu1515@gmail.com](mailto:shahrishu151@gmail.com)  
-🔗 GitHub: [[Your GitHub Profile Link Here](https://github.com/shahrishabh1513-jsk)]
+🔗 GitHub: [[shahrishabh1513-jsk](https://github.com/shahrishabh1513-jsk)]
 
 ---
 
 ⭐ If you like this project, consider giving it a star!
+
