@@ -118,29 +118,43 @@ This project demonstrates strong frontend architecture, dynamic DOM manipulation
 
 ---
 
-# 📂 Folder Structure
 
-bookmyseat-theatre-booking-system/
-│
-├── index.html
-├── seats.html
-├── payment.html
-├── success.html
-│
-├── css/
-│   ├── style.css
-│   ├── seats.css
-│   ├── payment.css
-│
-├── js/
-│   ├── main.js
-│   ├── seats.js
-│   ├── payment.js
-│
-└── images/
-    ├── movie1.jpg
-    ├── movie2.jpg
-    ├── movie3.jpg
-    ├── movie4.jpg
-    ├── movie5.jpg
-    └── movie6.jpg
+---
+
+# 🧠 Key Concepts Implemented
+
+✅ Vanilla JavaScript (No Frameworks)  
+✅ DOM Manipulation  
+✅ Local Storage API  
+✅ Dynamic Pricing Logic  
+✅ CSS Grid & Flexbox Layout  
+✅ Multi-Page State Management  
+✅ Form Validation  
+✅ Responsive Design System  
+✅ Smooth UI Animations  
+
+---
+
+# 🚀 Future Enhancements
+
+### 🔐 Authentication & User System
+- Add user login / authentication  
+- Store booking history  
+- User profile dashboard  
+
+### 💳 Payments & Booking
+- Integrate real payment gateway  
+- Multiple show timings  
+- Dynamic pricing based on time & demand  
+
+### 🎬 Experience Improvements
+- Food & beverage ordering  
+- Email confirmation system  
+- User reviews & ratings  
+- Loyalty rewards system  
+
+### ⚙️ Technical Upgrades
+- PWA Support  
+- Backend integration  
+
+# 📸 Screenshots
