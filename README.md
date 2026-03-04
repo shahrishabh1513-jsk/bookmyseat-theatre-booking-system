@@ -131,6 +131,7 @@ This project demonstrates strong frontend architecture, dynamic DOM manipulation
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
   <img src="https://img.shields.io/badge/Font_Awesome-528DD7?style=for-the-badge&logo=fontawesome&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Local_Storage-FF6F00?style=for-the-badge&logo=googlechrome&logoColor=white"/>
 </p>
 
 ---
@@ -173,4 +174,5 @@ This project demonstrates strong frontend architecture, dynamic DOM manipulation
 ---
 
 ⭐ If you like this project, consider giving it a star!
+
 
