@@ -149,17 +149,13 @@ This project demonstrates strong frontend architecture, dynamic DOM manipulation
 
 <div align="center">
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
-**Shah Rishabh**
+**Mo Fahim Raj**
 
-📧 [shahrishu1515@gmail.com](shahrishu1515@gmail.com)  
-🔗 [GitHub Profile]([https://github.com/yourusername](https://github.com/shahrishabh1513-jsk))
+📧 Email: [shahrishu1515@gmail.com](mailto:shahrishu151@gmail.com)  
+🔗 GitHub: [[Your GitHub Profile Link Here](https://github.com/shahrishabh1513-jsk)]
 
 ---
 
 ⭐ If you like this project, consider giving it a star!
-
-</div>
-
-
