@@ -1,0 +1,481 @@
+.payment-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.payment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+}
+
+.modern-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.modern-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Booking Summary Card */
+.booking-summary-card {
+    animation: slideInLeft 0.5s ease;
+}
+
+.movie-summary {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--light);
+    border-radius: 20px;
+    margin-bottom: 2rem;
+}
+
+.movie-summary-poster {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.movie-summary-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.movie-summary-info p {
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.seat-summary {
+    background: var(--light);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.seat-summary h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.seat-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.seat-tag {
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+}
+
+.seat-tag.regular { color: #4299e1; }
+.seat-tag.premium { color: #ecc94b; }
+.seat-tag.vip { color: #ed64a6; }
+
+.price-summary {
+    margin-bottom: 2rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+}
+
+.summary-item.total {
+    border-bottom: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+    padding-top: 1rem;
+}
+
+.savings-badge {
+    background: linear-gradient(135deg, #00b09b, #96c93d);
+    color: white;
+    padding: 1rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.savings-badge i {
+    font-size: 2rem;
+}
+
+/* Payment Section */
+.payment-section {
+    animation: slideInRight 0.5s ease;
+}
+
+.payment-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.payment-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.payment-header p {
+    color: #666;
+}
+
+.payment-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    background: var(--light);
+    padding: 0.5rem;
+    border-radius: 50px;
+}
+
+.tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--dark);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.tab-btn.active {
+    background: var(--gradient-1);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Card Tab */
+.card-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 2rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.card-icons i {
+    transition: all 0.3s ease;
+}
+
+.card-icons i:hover {
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.error-message {
+    color: var(--danger);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* UPI Tab */
+.upi-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.upi-option {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.upi-option:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.upi-option img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.upi-option span {
+    font-weight: 500;
+}
+
+.upi-id-input {
+    margin-top: 2rem;
+}
+
+.upi-id-input label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.input-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    font-size: 1rem;
+}
+
+.btn-verify {
+    padding: 0 2rem;
+    background: var(--gradient-1);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-verify:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* QR Tab */
+.qr-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.qr-code {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 2rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+}
+
+.qr-instructions {
+    text-align: left;
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-top: 1rem;
+}
+
+.qr-instructions p {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.qr-instructions i {
+    color: var(--success);
+}
+
+/* Wallet Tab */
+.wallet-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.wallet-option {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.wallet-option:hover {
+    border-color: var(--primary);
+    transform: translateX(5px);
+    box-shadow: var(--shadow-md);
+}
+
+.wallet-option i {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.wallet-option span {
+    flex: 1;
+    font-weight: 600;
+}
+
+.wallet-balance {
+    color: var(--success);
+    font-weight: 600;
+}
+
+/* Payment Footer */
+.payment-footer {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.secure-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--success);
+}
+
+.secure-badge i {
+    font-size: 1.2rem;
+}
+
+.pay-now-btn {
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 1200px) {
+    .payment-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .payment-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+        flex: 1 1 calc(50% - 0.5rem);
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .upi-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

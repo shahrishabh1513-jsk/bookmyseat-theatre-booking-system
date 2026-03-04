@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - BookMySeat</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/payment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      <link rel="icon" href="./image/Rweblogo.png">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./images/logo.jpg" alt="Cinema Logo">
+            </div>
+            <div class="booking-progress">
+                <div class="progress-step completed">
+                    <span class="step-number"><i class="fas fa-check"></i></span>
+                    <span class="step-label">Select Seats</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step active">
+                    <span class="step-number">2</span>
+                    <span class="step-label">Payment</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <span class="step-number">3</span>
+                    <span class="step-label">Confirm</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="payment-container">
+        <h1 class="page-title">Complete Your <span class="gradient-text">Payment</span></h1>
+        
+        <div class="payment-grid">
+            <!-- Left: Booking Summary -->
+            <div class="booking-summary-card modern-card" id="bookingSummary"></div>
+
+            <!-- Right: Payment Section -->
+            <div class="payment-section modern-card">
+                <div class="payment-header">
+                    <h2>Payment Methods</h2>
+                    <p>Secure payments powered by Razorpay</p>
+                </div>
+
+                <div class="payment-tabs">
+                    <button class="tab-btn active" data-tab="card">
+                        <i class="fas fa-credit-card"></i>
+                        Card
+                    </button>
+                    <button class="tab-btn" data-tab="upi">
+                        <i class="fas fa-mobile-alt"></i>
+                        UPI
+                    </button>
+                    <button class="tab-btn" data-tab="qr">
+                        <i class="fas fa-qrcode"></i>
+                        QR Code
+                    </button>
+                    <button class="tab-btn" data-tab="wallet">
+                        <i class="fas fa-wallet"></i>
+                        Wallet
+                    </button>
+                </div>
+
+                <div class="tab-content active" id="cardTab">
+                    <div class="card-icons">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-cc-discover"></i>
+                        <i class="fab fa-cc-rupay"></i>
+                    </div>
+                    <form id="cardForm">
+                        <div class="form-group">
+                            <label for="cardNumber">
+                                <i class="fas fa-credit-card"></i>
+                                Card Number
+                            </label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                            <small class="error-message"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="cardName">
+                                <i class="fas fa-user"></i>
+                                Cardholder Name
+                            </label>
+                            <input type="text" id="cardName" placeholder="JOHN DOE">
+                            <small class="error-message"></small>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiry">
+                                    <i class="fas fa-calendar"></i>
+                                    Expiry
+                                </label>
+                                <input type="text" id="expiry" placeholder="MM/YY" maxlength="5">
+                                <small class="error-message"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">
+                                    <i class="fas fa-lock"></i>
+                                    CVV
+                                </label>
+                                <input type="password" id="cvv" placeholder="123" maxlength="3">
+                                <small class="error-message"></small>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="tab-content" id="upiTab">
+                    <div class="upi-options">
+                        <button class="upi-option">
+                            <img src="./images/Google Pay.jpg" alt="Google Pay">
+                            <span>Google Pay</span>
+                        </button>
+                        <button class="upi-option">
+                            <img src="./images/phonepe.jpg" alt="PhonePe">
+                            <span>PhonePe</span>
+                        </button>
+                        <button class="upi-option">
+                            <img src="./images/paytm.jpg" alt="Paytm">
+                            <span>Paytm</span>
+                        </button>
+                        <button class="upi-option">
+                            <img src="./images/Amazon Pay.jpg" alt="Amazon Pay">
+                            <span>Amazon Pay</span>
+                        </button>
+                        <button class="upi-option">
+                            <img src="./images/BHIM.png" alt="BHIM">
+                            <span>BHIM</span>
+                        </button>
+                    </div>
+                    <div class="upi-id-input">
+                        <label>Enter UPI ID</label>
+                        <div class="input-group">
+                            <input type="text" placeholder="username@okhdfcbank">
+                            <button class="btn-verify">Verify</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="qrTab">
+                    <div class="qr-container">
+                        <div class="qr-code" id="qrCode"></div>
+                        <p>Scan with any UPI app</p>
+                        <div class="qr-instructions">
+                            <p><i class="fas fa-check-circle"></i> Open any UPI app</p>
+                            <p><i class="fas fa-check-circle"></i> Scan this QR code</p>
+                            <p><i class="fas fa-check-circle"></i> Enter amount and pay</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="walletTab">
+                    <div class="wallet-options">
+                        <button class="wallet-option">
+                            <i class="fas fa-wallet"></i>
+                            <span>Paytm Wallet</span>
+                            <span class="wallet-balance">₹500</span>
+                        </button>
+                        <button class="wallet-option">
+                            <i class="fas fa-wallet"></i>
+                            <span>PhonePe Wallet</span>
+                            <span class="wallet-balance">₹1,200</span>
+                        </button>
+                        <button class="wallet-option">
+                            <i class="fas fa-wallet"></i>
+                            <span>Amazon Pay</span>
+                            <span class="wallet-balance">₹350</span>
+                        </button>
+                        <button class="wallet-option">
+                            <i class="fas fa-wallet"></i>
+                            <span>Mobikwik</span>
+                            <span class="wallet-balance">₹0</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="payment-footer">
+                    <div class="secure-badge">
+                        <i class="fas fa-lock"></i>
+                        <span>100% Secure Payment</span>
+                    </div>
+                    <button class="btn-primary pay-now-btn" id="payNowBtn">
+                        Pay Now <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="js/payment.js"></script>
+</body>
+</html>

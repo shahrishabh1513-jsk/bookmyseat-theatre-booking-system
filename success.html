@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Success - BookMySeat</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/success.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      <link rel="icon" href="./image/Rweblogo.png">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./images/logo.jpg" alt="Cinema Logo">
+            </div>
+        </div>
+    </nav>
+
+    <main class="success-container">
+        <div class="success-card modern-card">
+            <div class="success-animation">
+                <div class="checkmark-circle">
+                    <div class="checkmark draw"></div>
+                </div>
+            </div>
+            
+            <h1 class="success-title">Payment <span class="gradient-text">Successful!</span></h1>
+            <p class="success-subtitle">Your tickets have been booked successfully</p>
+            
+            <div class="ticket-container" id="ticketContainer"></div>
+            
+            <div class="booking-id">
+                <span>Booking ID:</span>
+                <strong id="bookingId"></strong>
+                <button class="copy-btn" onclick="copyBookingId()">
+                    <i class="far fa-copy"></i>
+                </button>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn-outline" id="printReceiptBtn">
+                    <i class="fas fa-print"></i> Print Ticket
+                </button>
+                <a href="index.html" class="btn-primary" id="homeBtn">
+                    <i class="fas fa-home"></i> Go to Home
+                </a>
+                <button class="btn-outline" id="downloadBtn">
+                    <i class="fas fa-download"></i> Download
+                </button>
+            </div>
+            
+            <div class="redirect-message">
+                <i class="fas fa-clock"></i>
+                Redirecting to home in <span id="countdown">5</span> seconds...
+            </div>
+        </div>
+    </main>
+
+    <!-- Printable Ticket -->
+    <div class="print-ticket" id="printableTicket"></div>
+
+    <script src="js/success.js"></script>
+</body>
+</html>

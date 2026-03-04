@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMySeat | Theatre Booking System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="./image/Rweblogo.png">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./images/logo.jpg" alt="Cinema Logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="#now-showing">Now Showing</a></li>
+                <li><a href="#coming-soon">Coming Soon</a></li>
+                <li><a href="#offers">Offers</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="#" class="icon-btn"><i class="fas fa-search"></i></a>
+                <a href="#" class="icon-btn"><i class="fas fa-user"></i></a>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-subtitle">WELCOME TO BookMySeat</span>
+            <h1>Experience Cinema <span class="gradient-text">Like Never Before</span></h1>
+            <p>Book your tickets for the latest blockbusters with just a few clicks</p>
+            <div class="hero-buttons">
+                <a href="#now-showing" class="btn-primary">Book Now <i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="btn-outline">Watch Trailer <i class="fas fa-play"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Tabs -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">All Movies</button>
+                <button class="category-tab" data-category="bollywood">Bollywood</button>
+                <button class="category-tab" data-category="hollywood">Hollywood</button>
+                <button class="category-tab" data-category="south">South Indian</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Now Showing Section -->
+    <section class="now-showing" id="now-showing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Now <span class="gradient-text">Showing</span></h2>
+                <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="movie-grid" id="movieGrid"></div>
+        </div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section class="coming-soon" id="coming-soon">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Coming <span class="gradient-text">Soon</span></h2>
+                <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="coming-soon-grid" id="comingSoonGrid"></div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section class="offers" id="offers">
+        <div class="container">
+            <h2 class="section-title">Exclusive <span class="gradient-text">Offers</span></h2>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <h3>Student Discount</h3>
+                    <p>Get 20% off on all shows with valid student ID</p>
+                    <span class="offer-code">STUDENT20</span>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Weekend Special</h3>
+                    <p>Buy 2 tickets get 1 free on weekend shows</p>
+                    <span class="offer-code">WEEKEND3</span>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Card Offers</h3>
+                    <p>15% cashback with HDFC Bank Credit Cards</p>
+                    <span class="offer-code">HDFC15</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <div class="footer-logo">
+                    <img src="./images/logo.jpg" alt="Cinema Logo">
+                </div>
+                <p>Experience the magic of cinema with our premium theatre booking system. Book tickets hassle-free and enjoy the show!</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#now-showing"><i class="fas fa-chevron-right"></i> Now Showing</a></li>
+                    <li><a href="#coming-soon"><i class="fas fa-chevron-right"></i> Coming Soon</a></li>
+                    <li><a href="#offers"><i class="fas fa-chevron-right"></i> Offers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Cinema Street, Film City, Mumbai - 400001</p>
+                <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> support@cinematicket.com</p>
+                <p><i class="fas fa-clock"></i> 10:00 AM - 11:00 PM (Mon-Sun)</p>
+            </div>
+            <div class="footer-section newsletter">
+                <h3>Newsletter</h3>
+                <p>Subscribe for latest updates & offers</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+                <div class="app-download">
+                    <h4>Download App</h4>
+                    <div class="app-buttons">
+                        <a href="#"><img src="./images/Google Play.png" alt="Google Play"></a>
+                        <a href="#"><img src="./images/App Store.png" alt="App Store"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 BookMySeat. All rights reserved. | Privacy Policy | Terms of Service | R15</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-google-pay"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

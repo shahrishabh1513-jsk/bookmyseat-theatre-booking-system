@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Seats - BookMySeat</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/seats.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="./image/Rweblogo.png">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./images/logo.jpg" alt="Cinema Logo">
+            </div>
+            <div class="booking-progress">
+                <div class="progress-step active">
+                    <span class="step-number">1</span>
+                    <span class="step-label">Select Seats</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <span class="step-number">2</span>
+                    <span class="step-label">Payment</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <span class="step-number">3</span>
+                    <span class="step-label">Confirm</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="seat-selection-container">
+        <div class="movie-hero" id="movieHero"></div>
+
+        <div class="seat-layout-container">
+            <div class="seat-header">
+                <h1 class="page-title">Select Your <span class="gradient-text">Seats</span></h1>
+                <div class="screen-container">
+                    <div class="screen">SCREEN</div>
+                </div>
+            </div>
+
+            <div class="seat-legend">
+                <div class="legend-item available">
+                    <span class="seat-demo"></span>
+                    <span>Available</span>
+                </div>
+                <div class="legend-item selected">
+                    <span class="seat-demo"></span>
+                    <span>Selected</span>
+                </div>
+                <div class="legend-item booked">
+                    <span class="seat-demo"></span>
+                    <span>Booked</span>
+                </div>
+                <div class="legend-item regular">
+                    <span class="seat-demo"></span>
+                    <span>Regular (₹150)</span>
+                </div>
+                <div class="legend-item premium">
+                    <span class="seat-demo"></span>
+                    <span>Premium (₹250)</span>
+                </div>
+                <div class="legend-item vip">
+                    <span class="seat-demo"></span>
+                    <span>VIP (₹350)</span>
+                </div>
+            </div>
+
+            <div class="seats-wrapper">
+                <div class="seats-container" id="seatsContainer"></div>
+            </div>
+
+            <div class="booking-summary-card">
+                <div class="selected-seats-info" id="selectedSeatsInfo">
+                    <h3><i class="fas fa-check-circle"></i> Selected Seats</h3>
+                    <div class="seats-list" id="selectedSeatsList">None</div>
+                </div>
+                <div class="price-breakdown">
+                    <div class="price-item">
+                        <span>Ticket Price:</span>
+                        <span id="ticketPrice">₹0</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Convenience Fee:</span>
+                        <span id="convenienceFee">₹0</span>
+                    </div>
+                    <div class="price-item total">
+                        <span>Total:</span>
+                        <span id="totalPrice">₹0</span>
+                    </div>
+                </div>
+                <button class="btn-primary proceed-btn" id="proceedBtn" disabled>
+                    Proceed to Payment <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/seats.js"></script>
+</body>
+</html>
