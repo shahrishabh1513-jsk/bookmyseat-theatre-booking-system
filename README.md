@@ -127,13 +127,11 @@ This project demonstrates strong frontend architecture, dynamic DOM manipulation
 # 🛠️ Tech Stack
 
 <p align="center">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
-  <img src="https://img.shields.io/badge/Font_Awesome-528DD7?style=for-the-badge&logo=fontawesome&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Local_Storage-FF6F00?style=for-the-badge&logo=googlechrome&logoColor=white"/>
+  <img src="https://img.shields.io/badge/HTML5-000000?style=for-the-badge&logo=html5"/>
+  <img src="https://img.shields.io/badge/CSS3-000000?style=for-the-badge&logo=css3"/>
+  <img src="https://img.shields.io/badge/JavaScript-000000?style=for-the-badge&logo=javascript"/>
+  <img src="https://img.shields.io/badge/Responsive-000000?style=for-the-badge&logo=googlechrome"/>
 </p>
-
 ---
 
 ---
@@ -166,7 +164,7 @@ This project demonstrates strong frontend architecture, dynamic DOM manipulation
 
 # 👨‍💻 Author
 
-**Mo Fahim Raj**
+**Shah Rishabh**
 
 📧 Email: [shahrishu1515@gmail.com](mailto:shahrishu151@gmail.com)  
 🔗 GitHub: [[shahrishabh1513-jsk](https://github.com/shahrishabh1513-jsk)]
@@ -174,5 +172,6 @@ This project demonstrates strong frontend architecture, dynamic DOM manipulation
 ---
 
 ⭐ If you like this project, consider giving it a star!
+
 
 
