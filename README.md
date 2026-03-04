@@ -151,14 +151,15 @@ This project demonstrates strong frontend architecture, dynamic DOM manipulation
 
 ## 👨‍💻 Author
 
-**Mo Fahim Raj**
+**Shah Rishabh**
 
 📧 [shahrishu1515@gmail.com](shahrishu1515@gmail.com)  
-🔗 [GitHub Profile]((https://github.com/shahrishabh1513-jsk))
+🔗 [GitHub Profile]([https://github.com/yourusername](https://github.com/shahrishabh1513-jsk))
 
 ---
 
 ⭐ If you like this project, consider giving it a star!
 
 </div>
+
 
