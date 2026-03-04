@@ -19,7 +19,7 @@ Smart Theatre Ticket Booking System with Real-Time Seat Selection & Dynamic Pric
 ---
 
 ## 🌐 Live Demo
-(Add your GitHub Pages link here)
+👉https://shahrishabh1513-jsk.github.io/bookmyseat-theatre-booking-system/
 
 ---
 
@@ -172,6 +172,7 @@ This project demonstrates strong frontend architecture, dynamic DOM manipulation
 ---
 
 ⭐ If you like this project, consider giving it a star!
+
 
 
 
