@@ -1,4 +1,4 @@
-.payment-grid {
+.payment-cosmic-grid {
     max-width: 1300px;
     margin: 2rem auto;
     display: grid;
@@ -7,18 +7,17 @@
     padding: 0 2rem;
 }
 
-.glass-card {
-    background: rgba(20, 20, 45, 0.65);
+.glass-asteroid {
+    background: rgba(10, 5, 25, 0.7);
     backdrop-filter: blur(16px);
     border-radius: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(139, 92, 246, 0.4);
     padding: 2rem;
 }
 
 .tab-group {
     display: flex;
     gap: 0.5rem;
-    flex-wrap: wrap;
     margin-bottom: 1.8rem;
 }
 
@@ -30,28 +29,19 @@
     color: white;
     font-weight: 500;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 .tab-btn.active {
-    background: #a855f7;
+    background: var(--cosmic-purple);
+    box-shadow: 0 0 10px var(--cosmic-purple);
 }
 
-.payment-form input, .glass-card input {
+.glass-asteroid input {
     width: 100%;
     padding: 0.9rem;
     margin: 0.7rem 0;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.5);
     border: 1px solid #334155;
     border-radius: 1rem;
     color: white;
-    outline: none;
-}
-
-.payment-form input:focus, .glass-card input:focus {
-    border-color: #a855f7;
-}
-
-@media (max-width: 800px) {
-    .payment-grid { grid-template-columns: 1fr; }
 }
