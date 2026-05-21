@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Success - BookMySeat</title>
+    <title>Booking Success - BOXOFFICE</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/success.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-      <link rel="icon" href="./image/Rweblogo.png">
 </head>
 <body>
+    <canvas id="canvas-bg"></canvas>
+    
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="./images/logo.jpg" alt="Cinema Logo">
+                <div class="logo-icon">
+                    <i class="fas fa-film"></i>
+                </div>
+                <span class="logo-text">BOX<span>OFFICE</span></span>
             </div>
         </div>
     </nav>
@@ -23,11 +27,11 @@
         <div class="success-card modern-card">
             <div class="success-animation">
                 <div class="checkmark-circle">
-                    <div class="checkmark draw"></div>
+                    <div class="checkmark"></div>
                 </div>
             </div>
             
-            <h1 class="success-title">Payment <span class="gradient-text">Successful!</span></h1>
+            <h1 class="success-title">Payment <span class="glow-text">Successful!</span></h1>
             <p class="success-subtitle">Your tickets have been booked successfully</p>
             
             <div class="ticket-container" id="ticketContainer"></div>
@@ -44,7 +48,7 @@
                 <button class="btn-outline" id="printReceiptBtn">
                     <i class="fas fa-print"></i> Print Ticket
                 </button>
-                <a href="index.html" class="btn-primary" id="homeBtn">
+                <a href="index.html" class="btn-primary">
                     <i class="fas fa-home"></i> Go to Home
                 </a>
                 <button class="btn-outline" id="downloadBtn">
@@ -59,7 +63,6 @@
         </div>
     </main>
 
-    <!-- Printable Ticket -->
     <div class="print-ticket" id="printableTicket"></div>
 
     <script src="js/success.js"></script>

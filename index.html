@@ -2,117 +2,209 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>CineMagic | Cosmic Cinema Booking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoxOffice | Premium Cinema Booking</title>
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/seats.css">
-    <link rel="stylesheet" href="css/payment.css">
-    <link rel="stylesheet" href="css/success.css">
-    <link rel="icon" href="./images/favicon.png">
 </head>
 <body>
-
-<nav class="nebula-nav">
-    <div class="nav-container">
-        <div class="logo-area">
-            <div class="logo-icon"><i class="fas fa-meteor"></i></div>
-            <span class="logo-text">CineMagic</span>
-        </div>
-        <div class="nav-links">
-            <a href="#" class="active" data-nav="home">Home</a>
-            <a href="#" data-nav="seats" id="navSeatsLink" style="display:none;">Seats</a>
-            <a href="#" data-nav="payment" id="navPaymentLink" style="display:none;">Payment</a>
-        </div>
-    </div>
-</nav>
-
-<div id="appRoot">
-    <!-- HOME PAGE -->
-    <div id="homePage">
-        <div class="hero-cosmic">
-            <div class="floating-stars"></div>
-            <h1>Experience <span class="gradient-text">Cinema in Orbit</span></h1>
-            <p>Premium seats • Cosmic sound • Zero gravity comfort</p>
-        </div>
-        <div class="category-tabs" id="categoryTabs">
-            <button class="cat-btn active" data-cat="all">All Realms</button>
-            <button class="cat-btn" data-cat="bollywood">Bollywood</button>
-            <button class="cat-btn" data-cat="hollywood">Hollywood</button>
-            <button class="cat-btn" data-cat="south">South Storm</button>
-        </div>
-        <div class="movie-grid" id="movieGrid"></div>
-        <div class="coming-soon-section">
-            <h2>🌠 Coming Soon <span class="gradient-text">to Hyperspace</span></h2>
-            <div id="comingSoonGrid" class="coming-grid"></div>
-        </div>
-    </div>
-
-    <!-- SEATS PAGE -->
-    <div id="seatsPage" style="display:none;">
-        <div class="seat-planet-card">
-            <div class="screen-hologram">🪐 H O L O G R A P H I C  S C R E E N 🪐</div>
-            <div id="seatsDynamicContainer" class="orbit-seats"></div>
-            <div class="booking-pod">
-                <div><strong>Selected Seats:</strong> <span id="selectedSeatsDisplay">None</span></div>
-                <div><strong>Total: ₹<span id="seatTotal">0</span></strong> <span style="font-size:0.8rem;"> (incl. fees)</span></div>
-                <button class="btn-warp" id="proceedToPaymentBtn">Warp to Payment →</button>
+    <canvas id="canvas-bg"></canvas>
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-film"></i>
+                </div>
+                <span class="logo-text">BOX<span>OFFICE</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="#now-showing">Movies</a></li>
+                <li><a href="#coming-soon">Coming Soon</a></li>
+                <li><a href="#offers">Offers</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="user-icon">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <!-- PAYMENT PAGE -->
-    <div id="paymentPage" style="display:none;">
-        <div class="payment-cosmic-grid">
-            <div class="glass-asteroid" id="paymentSummaryCard"></div>
-            <div class="glass-asteroid">
-                <h3><i class="fas fa-shield-alt"></i> Secure Quantum Pay</h3>
-                <div class="tab-group" id="payTabs">
-                    <button class="tab-btn active" data-method="card">💳 Card</button>
-                    <button class="tab-btn" data-method="upi">📱 UPI</button>
-                    <button class="tab-btn" data-method="qr">📷 QR Code</button>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>✦ PREMIUM EXPERIENCE ✦</span>
+            </div>
+            <h1>Where Stories<br>Come to <span class="glow-text">Life</span></h1>
+            <p>Immerse yourself in the ultimate cinematic journey with crystal clear visuals, thundering audio, and the most comfortable seats in town.</p>
+            <div class="hero-buttons">
+                <a href="#now-showing" class="btn-primary">
+                    Book Now <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#" class="btn-outline">
+                    <i class="fas fa-play"></i> Watch Trailer
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">4K</span>
+                    <span class="stat-label">Dolby Vision</span>
                 </div>
-                <div id="cardFormPanel">
-                    <input type="text" id="cardNumber" placeholder="Card Number" maxlength="19">
-                    <input type="text" id="cardName" placeholder="Cardholder Name">
-                    <div style="display:flex; gap:1rem;">
-                        <input type="text" id="expiry" placeholder="MM/YY">
-                        <input type="password" id="cvv" placeholder="CVV">
+                <div class="stat">
+                    <span class="stat-number">DTS:X</span>
+                    <span class="stat-label">Surround Sound</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">LUXE</span>
+                    <span class="stat-label">Recliner Seats</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Tabs -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">All Movies</button>
+                <button class="category-tab" data-category="bollywood">Bollywood</button>
+                <button class="category-tab" data-category="hollywood">Hollywood</button>
+                <button class="category-tab" data-category="south">South Indian</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Now Showing -->
+    <section class="now-showing" id="now-showing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Now <span>Showing</span></h2>
+                <div class="section-controls">
+                    <button class="control-btn prev-movie"><i class="fas fa-chevron-left"></i></button>
+                    <button class="control-btn next-movie"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="movie-grid" id="movieGrid"></div>
+        </div>
+    </section>
+
+    <!-- Coming Soon -->
+    <section class="coming-soon" id="coming-soon">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Coming <span>Soon</span></h2>
+                <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="coming-soon-grid" id="comingSoonGrid"></div>
+        </div>
+    </section>
+
+    <!-- Offers -->
+    <section class="offers" id="offers">
+        <div class="container">
+            <h2 class="section-title">Exclusive <span>Offers</span></h2>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
+                    <h3>Student Special</h3>
+                    <p>20% off on all shows with valid student ID</p>
+                    <div class="offer-code">STUDENT20</div>
                 </div>
-                <div id="upiFormPanel" style="display:none;">
-                    <input type="text" id="upiId" placeholder="username@okhdfcbank">
-                    <button class="btn-warp" id="verifyUpiBtn" style="margin-top:0.5rem;">Verify & Pay</button>
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-calendar-week"></i>
+                    </div>
+                    <h3>Weekend Bliss</h3>
+                    <p>Buy 2 get 1 free on weekend screenings</p>
+                    <div class="offer-code">WEEKEND3</div>
                 </div>
-                <div id="qrFormPanel" style="display:none; text-align:center;">
-                    <div id="qrCodeContainer" style="display:flex; justify-content:center; margin:1rem 0;"></div>
-                    <p style="font-size:0.8rem;">Scan with any UPI app</p>
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Card Rewards</h3>
+                    <p>15% cashback on HDFC & ICICI cards</p>
+                    <div class="offer-code">CASHBACK15</div>
                 </div>
-                <button class="btn-warp" id="finalPayBtn" style="margin-top:1.5rem;">Pay Now <i class="fas fa-lock"></i></button>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- SUCCESS MODAL -->
-    <div id="successModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(12px); z-index:1000; align-items:center; justify-content:center; padding:1rem;">
-        <div class="glass-asteroid" style="max-width:550px; width:100%; max-height:85vh; overflow:auto;">
-            <div style="text-align:center;"><i class="fas fa-check-circle" style="font-size:4rem; color:#10b981;"></i></div>
-            <h2 style="text-align:center;">Booking Confirmed!</h2>
-            <div id="receiptContent"></div>
-            <div style="display:flex; gap:1rem; margin-top:1.5rem;">
-                <button class="btn-warp" id="printReceiptBtn" style="background:#334155;">🖨️ Print</button>
-                <button class="btn-warp" id="closeSuccessBtn">🏠 Home</button>
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-film"></i>
+                    <span>BOX<span>OFFICE</span></span>
+                </div>
+                <p>Redefining the movie experience with state-of-the-art technology and unparalleled comfort.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#now-showing">Now Showing</a></li>
+                    <li><a href="#coming-soon">Coming Soon</a></li>
+                    <li><a href="#offers">Offers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Get latest updates on new movies & offers</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+                <div class="app-download">
+                    <img src="https://via.placeholder.com/120x40/1a1a2e/ffffff?text=Google+Play" alt="Google Play">
+                    <img src="https://via.placeholder.com/120x40/1a1a2e/ffffff?text=App+Store" alt="App Store">
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<footer class="cosmic-footer">© 2025 CineMagic — Where stories travel faster than light</footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 BOXOFFICE. All rights reserved. | The Ultimate Cinema Experience</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-google-pay"></i>
+            </div>
+        </div>
+    </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-<script src="js/main.js"></script>
-<script src="js/seats.js"></script>
-<script src="js/payment.js"></script>
-<script src="js/success.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
