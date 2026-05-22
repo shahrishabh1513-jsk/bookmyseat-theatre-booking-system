@@ -26,18 +26,20 @@ Smart Theatre Ticket Booking System with Real-Time Seat Selection & Dynamic Pric
 # 📸 Screenshots
 
 # 🏠 Home Page
-<img width="1874" height="889" alt="Screenshot 2026-03-04 205532" src="https://github.com/user-attachments/assets/f366031d-a105-46ca-8607-acbc5ba9ed63" />
-<img width="1749" height="706" alt="Screenshot 2026-03-04 205557" src="https://github.com/user-attachments/assets/68bcb967-a24a-46f1-b81c-e83081ed874b" />
-<img width="1237" height="712" alt="Screenshot 2026-03-04 205615" src="https://github.com/user-attachments/assets/a2bb9e3e-7e48-4bcd-b111-603cef2e3f44" />
+<img width="1739" height="815" alt="Day_41_ss1" src="https://github.com/user-attachments/assets/cdac31de-97a1-49dd-a0a9-b4dccbe2e6f4" />
+<img width="1604" height="761" alt="Day_41_ss2" src="https://github.com/user-attachments/assets/05341e9d-3486-4cfc-a879-1b4bcf958961" />
+<img width="1874" height="818" alt="Day_41_ss5" src="https://github.com/user-attachments/assets/1de4a831-6eb3-44d5-8c38-24b5a0c69ff7" />
 
 # 💺 Seat Selection Page
-<img width="1634" height="842" alt="Screenshot 2026-03-04 205752" src="https://github.com/user-attachments/assets/73aa676a-2497-47f4-b3bf-1abbee6c4ce9" />
+<img width="1552" height="818" alt="Day_41_ss3" src="https://github.com/user-attachments/assets/91858750-5b4e-49f9-9f5d-65e8392e1c1f" />
+
 
 # 💳 Payment Page
-<img width="1722" height="686" alt="Screenshot 2026-03-04 210204" src="https://github.com/user-attachments/assets/36c9be8f-951b-465e-b0e3-7ae36584e587" />
+<img width="1773" height="886" alt="Day_41_ss4" src="https://github.com/user-attachments/assets/639d4c6c-daf4-466c-8745-56844372f322" />
+
 
 # ✅ Booking Success Page
-<img width="1512" height="717" alt="Screenshot 2026-03-04 210355" src="https://github.com/user-attachments/assets/6876fe6d-d7fe-4984-8a6c-2887ef032898" />
+<img width="1431" height="809" alt="Day_41_ss6" src="https://github.com/user-attachments/assets/5e92e119-6356-48e2-beb0-8b03fd6a6edb" />
 
 ---
 # 🎬 Project Overview
