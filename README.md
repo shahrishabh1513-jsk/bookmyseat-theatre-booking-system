@@ -5,124 +5,169 @@
 <h1 align="center">🎟️ BookMySeat</h1>
 
 <p align="center">
-Smart Theatre Ticket Booking System with Real-Time Seat Selection & Dynamic Pricing
+  Smart Theatre Ticket Booking System with Real-Time Seat Selection & Dynamic Pricing
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Frontend-Project-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Responsive-Yes-orange?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Vanilla-JS-yellow?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/UI-Modern%20Gradient-purple?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Frontend-Project-0f172a?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Responsive-Yes-f97316?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Vanilla-JS-facc15?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/UI-Modern%20Gradient-a855f7?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Status-Completed-22c55e?style=for-the-badge"/>
+</p>
+
+<p align="center">
+  🎬 Interactive Movie Booking Experience • 💺 Smart Seat Selection • 💳 Payment Simulation
 </p>
 
 ---
 
-## 🌐 Live Demo
-👉https://shahrishabh1513-jsk.github.io/bookmyseat-theatre-booking-system/
+# 🌐 Live Demo
+
+<p align="center">
+  <a href="https://shahrishabh1513-jsk.github.io/bookmyseat-theatre-booking-system/">
+    <img src="https://img.shields.io/badge/🚀%20Launch%20Project-Live%20Demo-blue?style=for-the-badge"/>
+  </a>
+</p>
 
 ---
 
-# 📸 Screenshots
+# 📸 Project Screenshots
 
-# 🏠 Home Page
-<img width="1739" height="815" alt="Day_41_ss1" src="https://github.com/user-attachments/assets/cdac31de-97a1-49dd-a0a9-b4dccbe2e6f4" />
-<img width="1604" height="761" alt="Day_41_ss2" src="https://github.com/user-attachments/assets/05341e9d-3486-4cfc-a879-1b4bcf958961" />
-<img width="1874" height="818" alt="Day_41_ss5" src="https://github.com/user-attachments/assets/1de4a831-6eb3-44d5-8c38-24b5a0c69ff7" />
+## 🏠 Home Page
 
-# 💺 Seat Selection Page
-<img width="1552" height="818" alt="Day_41_ss3" src="https://github.com/user-attachments/assets/91858750-5b4e-49f9-9f5d-65e8392e1c1f" />
-
-
-# 💳 Payment Page
-<img width="1773" height="886" alt="Day_41_ss4" src="https://github.com/user-attachments/assets/639d4c6c-daf4-466c-8745-56844372f322" />
-
-
-# ✅ Booking Success Page
-<img width="1431" height="809" alt="Day_41_ss6" src="https://github.com/user-attachments/assets/5e92e119-6356-48e2-beb0-8b03fd6a6edb" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/cdac31de-97a1-49dd-a0a9-b4dccbe2e6f4" width="900"/>
+  <br><br>
+  <img src="https://github.com/user-attachments/assets/05341e9d-3486-4cfc-a879-1b4bcf958961" width="900"/>
+  <br><br>
+  <img src="https://github.com/user-attachments/assets/1de4a831-6eb3-44d5-8c38-24b5a0c69ff7" width="900"/>
+</p>
 
 ---
+
+## 💺 Seat Selection Page
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/91858750-5b4e-49f9-9f5d-65e8392e1c1f" width="900"/>
+</p>
+
+---
+
+## 💳 Payment Page
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/639d4c6c-daf4-466c-8745-56844372f322" width="900"/>
+</p>
+
+---
+
+## ✅ Booking Success Page
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5e92e119-6356-48e2-beb0-8b03fd6a6edb" width="900"/>
+</p>
+
+---
+
 # 🎬 Project Overview
 
-**BookMySeat** is a fully responsive cinema ticket booking web application built using pure **HTML5, CSS3, and Vanilla JavaScript**.
+**BookMySeat** is a fully responsive movie ticket booking web application built using:
 
-It simulates a real-world movie booking experience — allowing users to:
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+</p>
 
-- Browse movies  
-- Select seats interactively  
-- View real-time price calculations  
-- Complete booking through payment simulation  
-- Receive booking confirmation  
+The application simulates a real-world theatre booking system where users can:
 
-This project demonstrates strong frontend architecture, dynamic DOM manipulation, Local Storage state management, and modern UI design principles.
+- 🎥 Browse available movies  
+- 💺 Select seats interactively  
+- 💰 View dynamic price calculations  
+- 📊 Track live booking summary  
+- 💳 Complete payment simulation  
+- ✅ Receive booking confirmation  
+
+This project demonstrates strong frontend development concepts including:
+
+✨ DOM Manipulation  
+✨ Local Storage Management  
+✨ Dynamic UI Rendering  
+✨ Responsive Web Design  
+✨ Interactive User Experience  
 
 ---
 
 # ✨ Core Features
 
-🎯 Multi-Page Application  
-🎨 Modern Gradient UI Design  
-💺 Interactive Seat Selection System  
-💰 Dynamic Price Calculation  
-📊 Live Booking Summary  
-💾 Local Storage Integration  
-📱 Fully Responsive Layout  
-⚡ Smooth Animations & Hover Effects  
-💳 Payment Simulation Flow  
+| 🚀 Feature | 📌 Description |
+|------------|----------------|
+| 🎬 Multi-Page Application | Separate pages for booking flow |
+| 💺 Interactive Seat Selection | Real-time seat selection system |
+| 💰 Dynamic Pricing | Price changes based on seat type |
+| 📊 Live Booking Summary | Instant booking calculation |
+| 💾 Local Storage | Stores booking information |
+| 📱 Responsive Design | Mobile + Tablet + Desktop support |
+| ⚡ Smooth UI Effects | Modern hover & transition effects |
+| 💳 Payment Simulation | Simulated payment workflow |
 
 ---
 
 # 📱 Pages Breakdown
 
-## 🏠 1️⃣ Home Page (index.html)
+## 🏠 Home Page (`index.html`)
 
-- Movie cards with posters  
-- Responsive grid layout  
-- “Select Seats” call-to-action buttons  
-- Smooth hover elevation effects  
-- Clean navigation system  
-
----
-
-## 💺 2️⃣ Seat Selection Page (seats.html)
-
-- 9 Rows (A–I) × 12 Seats Layout  
-- Color-coded seat categories:
-
-  🔵 Regular – ₹150  
-  🟡 Premium – ₹250  
-  💗 VIP – ₹350  
-
-- Real-time subtotal calculation  
-- Selected seats highlight  
-- Seat availability handling  
-- Data stored in Local Storage  
+- 🎥 Movie cards with posters
+- 📱 Responsive grid system
+- 🎨 Smooth hover animations
+- 🎯 Easy navigation
 
 ---
 
-## 💳 3️⃣ Payment Page (payment.html)
+## 💺 Seat Selection (`seats.html`)
 
-- Booking summary display  
-- Multiple payment methods:
-  - Credit/Debit Card  
-  - UPI  
-  - QR Code  
+### 🎟️ Seat Categories
 
-- Tax Calculation:
-  - 5% Convenience Fee  
-  - 18% GST  
+| Seat Type | Price |
+|-----------|-------|
+| 🔵 Regular | ₹150 |
+| 🟡 Premium | ₹250 |
+| 💗 VIP | ₹350 |
 
-- Payment simulation animation  
-- Basic form validation  
+### Features
+
+- 9 Rows × 12 Columns seat layout
+- Interactive seat selection
+- Live subtotal calculation
+- Availability management
+- Local Storage integration
 
 ---
 
-## ✅ 4️⃣ Success Page (success.html)
+## 💳 Payment Page (`payment.html`)
 
-- Animated confirmation checkmark  
-- Auto redirect system  
-- Booking data cleanup  
-- Professional confirmation message  
+### Supported Payment Methods
+
+- 💳 Credit / Debit Card
+- 📱 UPI
+- 📷 QR Code
+
+### Additional Features
+
+- GST & convenience fee calculation
+- Booking summary display
+- Basic form validation
+- Payment animation simulation
+
+---
+
+## ✅ Success Page (`success.html`)
+
+- Animated booking confirmation
+- Auto redirect system
+- Booking cleanup process
+- Professional success UI
 
 ---
 
@@ -132,49 +177,101 @@ This project demonstrates strong frontend architecture, dynamic DOM manipulation
   <img src="https://img.shields.io/badge/HTML5-000000?style=for-the-badge&logo=html5"/>
   <img src="https://img.shields.io/badge/CSS3-000000?style=for-the-badge&logo=css3"/>
   <img src="https://img.shields.io/badge/JavaScript-000000?style=for-the-badge&logo=javascript"/>
-  <img src="https://img.shields.io/badge/Responsive-000000?style=for-the-badge&logo=googlechrome"/>
+  <img src="https://img.shields.io/badge/Responsive%20Design-000000?style=for-the-badge&logo=googlechrome"/>
 </p>
+
 ---
+
+# 🧠 Concepts Used
+
+- DOM Manipulation
+- Event Handling
+- Flexbox & Grid Layout
+- Local Storage API
+- Dynamic Price Calculation
+- Responsive Media Queries
+- CSS Animations & Transitions
 
 ---
 
 # 🚀 Future Enhancements
 
-### 🔐 Authentication & User System
-- Add user login / authentication  
-- Store booking history  
-- User profile dashboard  
+## 🔐 Authentication System
+- User Login & Signup
+- Booking History
+- User Dashboard
 
-### 💳 Payments & Booking
-- Integrate real payment gateway  
-- Multiple show timings  
-- Dynamic pricing based on time & demand  
+## 💳 Advanced Booking Features
+- Real Payment Gateway
+- Multiple Show Timings
+- Dynamic Seat Availability
+- Booking Cancellation
 
-### 🎬 Experience Improvements
-- Food & beverage ordering  
-- Email confirmation system  
-- User reviews & ratings  
-- Loyalty rewards system  
+## 🎬 Experience Upgrades
+- Food Ordering System
+- Movie Ratings & Reviews
+- Email Ticket Confirmation
+- Loyalty Rewards System
 
-### ⚙️ Technical Upgrades
-- PWA Support  
-- Backend integration  
+## ⚙️ Technical Improvements
+- Backend Integration
+- Database Connectivity
+- PWA Support
+- API Integration
 
 ---
 
-<div align="center">
+# 🌟 Why This Project Stands Out
+
+✅ Real-world booking workflow  
+✅ Clean modern UI design  
+✅ Fully responsive experience  
+✅ Dynamic interactive features  
+✅ Practical JavaScript implementation  
+
+---
+
+# 🤝 Connect With Me
+
+<p align="center">
+  <a href="https://github.com/shahrishabh1513-jsk">
+    <img src="https://cdn-icons-png.flaticon.com/512/2504/2504911.png" width="50"/>
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://www.linkedin.com/in/rishabh-alpeshabhai-shah-91b9072a6/">
+    <img src="https://cdn-icons-png.flaticon.com/512/2504/2504923.png" width="50"/>
+  </a>
+</p>
+
+---
 
 # 👨‍💻 Author
 
-**Shah Rishabh**
-
-📧 Email: [shahrishu1515@gmail.com](mailto:shahrishu151@gmail.com)  
-🔗 GitHub: [[shahrishabh1513-jsk](https://github.com/shahrishabh1513-jsk)]
+<p align="center">
+  <b>Shah Rishabh</b>
+  <br><br>
+  📧 Email: <a href="mailto:shahrishu151@gmail.com">shahrishu151@gmail.com</a>
+</p>
 
 ---
 
-⭐ If you like this project, consider giving it a star!
+# ⭐ Support
 
+If you liked this project:
 
+- ⭐ Star this repository
+- 🍴 Fork the project
+- 💬 Share your feedback
+- 🚀 Support future projects
 
+---
 
+# 🙌 Final Note
+
+Thank you for visiting **BookMySeat** 🎟️
+
+This project reflects my passion for building modern, responsive, and interactive frontend web applications using pure web technologies.
+
+<p align="center">
+  Built with ❤️ by <b>Rishabh A. Shah</b>
+</p>
