@@ -1,211 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOXOFFICE | Premium Cinema Booking</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" href="images/Rweblogo.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOXOFFICE | Premium Cinema Booking</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <canvas id="canvas-bg"></canvas>
-    
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <div class="logo-icon">
-                    <img src="images/logo.jpg" alt="BOXOFFICE" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-                </div>
-                <span class="logo-text">BOX<span>OFFICE</span></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="#now-showing">Movies</a></li>
-                <li><a href="#coming-soon">Coming Soon</a></li>
-                <li><a href="#offers">Offers</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="nav-right">
-                <div class="search-icon">
-                    <i class="fas fa-search"></i>
-                </div>
-                <div class="user-icon">
-                    <i class="fas fa-user-circle"></i>
-                </div>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span>✦ PREMIUM EXPERIENCE ✦</span>
-            </div>
-            <h1>Where Stories<br>Come to <span class="glow-text">Life</span></h1>
-            <p>Immerse yourself in the ultimate cinematic journey with crystal clear visuals, thundering audio, and the most comfortable seats in town.</p>
-            <div class="hero-buttons">
-                <a href="#now-showing" class="btn-primary">
-                    Book Now <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="#" class="btn-outline">
-                    <i class="fas fa-play"></i> Watch Trailer
-                </a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number">4K</span>
-                    <span class="stat-label">Dolby Vision</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">DTS:X</span>
-                    <span class="stat-label">Surround Sound</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">LUXE</span>
-                    <span class="stat-label">Recliner Seats</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Particle Canvas -->
+<canvas id="particles"></canvas>
 
-    <!-- Category Tabs -->
-    <section class="category-section">
-        <div class="container">
-            <div class="category-tabs">
-                <button class="category-tab active" data-category="all">All Movies</button>
-                <button class="category-tab" data-category="bollywood">Bollywood</button>
-                <button class="category-tab" data-category="hollywood">Hollywood</button>
-                <button class="category-tab" data-category="south">South Indian</button>
-            </div>
-        </div>
-    </section>
+<!-- Toast -->
+<div class="toast" id="toast">
+  <span class="toast-icon" id="toastIcon"></span>
+  <span class="toast-msg"  id="toastMsg"></span>
+</div>
 
-    <!-- Now Showing -->
-    <section class="now-showing" id="now-showing">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Now <span>Showing</span></h2>
-                <div class="section-controls">
-                    <button class="control-btn prev-movie"><i class="fas fa-chevron-left"></i></button>
-                    <button class="control-btn next-movie"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </div>
-            <div class="movie-grid" id="movieGrid"></div>
-        </div>
-    </section>
+<!-- Confetti -->
+<div id="confetti"></div>
 
-    <!-- Coming Soon -->
-    <section class="coming-soon" id="coming-soon">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Coming <span>Soon</span></h2>
-                <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="coming-soon-grid" id="comingSoonGrid"></div>
-        </div>
-    </section>
+<!-- ───── NAVBAR ───── -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <div class="logo" onclick="scrollToSection('home')">
+      <div class="logo-icon"><i class="fas fa-film"></i></div>
+      <div class="logo-text">BOX<span>OFFICE</span></div>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home"         class="active">Home</a></li>
+      <li><a href="#now-showing"          >Movies</a></li>
+      <li><a href="#coming-soon"          >Coming Soon</a></li>
+      <li><a href="#offers"               >Offers</a></li>
+      <li><a href="#contact"              >Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn"><i class="fas fa-search"></i></button>
+      <button class="icon-btn"><i class="fas fa-user-circle"></i></button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
 
-    <!-- Offers -->
-    <section class="offers" id="offers">
-        <div class="container">
-            <h2 class="section-title">Exclusive <span>Offers</span></h2>
-            <div class="offers-grid">
-                <div class="offer-card">
-                    <div class="offer-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Student Special</h3>
-                    <p>20% off on all shows with valid student ID</p>
-                    <div class="offer-code">STUDENT20</div>
-                </div>
-                <div class="offer-card">
-                    <div class="offer-icon">
-                        <i class="fas fa-calendar-week"></i>
-                    </div>
-                    <h3>Weekend Bliss</h3>
-                    <p>Buy 2 get 1 free on weekend screenings</p>
-                    <div class="offer-code">WEEKEND3</div>
-                </div>
-                <div class="offer-card">
-                    <div class="offer-icon">
-                        <i class="fas fa-credit-card"></i>
-                    </div>
-                    <h3>Card Rewards</h3>
-                    <p>15% cashback on HDFC & ICICI cards</p>
-                    <div class="offer-code">CASHBACK15</div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#home"        onclick="closeMobile()">Home</a>
+  <a href="#now-showing" onclick="closeMobile()">Movies</a>
+  <a href="#coming-soon" onclick="closeMobile()">Coming Soon</a>
+  <a href="#offers"      onclick="closeMobile()">Offers</a>
+  <a href="#contact"     onclick="closeMobile()">Contact</a>
+</div>
 
-    <!-- Footer -->
-    <footer class="footer" id="contact">
-        <div class="footer-container">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="images/logo.jpg" alt="BOXOFFICE" style="width: 40px; height: 40px; border-radius: 10px;">
-                    <span>BOX<span>OFFICE</span></span>
-                </div>
-                <p>Redefining the movie experience with state-of-the-art technology and unparalleled comfort.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#now-showing">Now Showing</a></li>
-                    <li><a href="#coming-soon">Coming Soon</a></li>
-                    <li><a href="#offers">Offers</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Support</h3>
-                <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Refund Policy</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Newsletter</h3>
-                <p>Get latest updates on new movies & offers</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address">
-                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                </form>
-                <div class="app-download">
-                    <img src="images/Google Play.png" alt="Google Play">
-                    <img src="images/App Store.png" alt="App Store">
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 BOXOFFICE. All rights reserved. | The Ultimate Cinema Experience</p>
-            <div class="payment-methods">
-                <i class="fab fa-cc-visa"></i>
-                <i class="fab fa-cc-mastercard"></i>
-                <i class="fab fa-cc-amex"></i>
-                <i class="fab fa-cc-paypal"></i>
-                <i class="fab fa-google-pay"></i>
-            </div>
-        </div>
-    </footer>
+<!-- ───── HERO ───── -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fas fa-star"></i> &nbsp;PREMIUM CINEMA EXPERIENCE</div>
+    <h1>Where Stories<br>Come to <em>Life</em></h1>
+    <p class="hero-sub">Immerse yourself in the ultimate cinematic journey — crystal-clear 4K Dolby Vision, thundering DTS:X surround sound, and the most luxurious recliner seats in town.</p>
+    <div class="hero-btns">
+      <a href="#now-showing" class="btn-primary"><i class="fas fa-ticket-alt"></i> Book Now</a>
+      <a href="#coming-soon" class="btn-outline"><i class="fas fa-play-circle"></i> Coming Soon</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">4K</span><span class="stat-lab">Dolby Vision</span></div>
+      <div class="stat"><span class="stat-num">DTS:X</span><span class="stat-lab">Surround Sound</span></div>
+      <div class="stat"><span class="stat-num">LUXE</span><span class="stat-lab">Recliner Seats</span></div>
+      <div class="stat"><span class="stat-num">20+</span><span class="stat-lab">Movies Now</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-ring"><i class="fas fa-chevron-down"></i></div>
+    <span>Scroll</span>
+  </div>
+</section>
 
-    <script src="js/main.js"></script>
+<!-- ───── MARQUEE ───── -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- ───── NOW SHOWING ───── -->
+<section class="sec-pad" id="now-showing">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2 class="sec-title">Now <span>Showing</span></h2>
+      <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="filters reveal" id="filters">
+      <button class="filter-btn active" data-cat="all">All Movies</button>
+      <button class="filter-btn" data-cat="bollywood">Bollywood</button>
+      <button class="filter-btn" data-cat="hollywood">Hollywood</button>
+      <button class="filter-btn" data-cat="south">South Indian</button>
+    </div>
+    <div class="movie-grid" id="movieGrid"></div>
+  </div>
+</section>
+
+<!-- ───── COMING SOON ───── -->
+<section class="sec-pad" style="background:var(--bg2)" id="coming-soon">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2 class="sec-title">Coming <span>Soon</span></h2>
+    </div>
+    <div class="coming-grid reveal" id="comingGrid"></div>
+  </div>
+</section>
+
+<!-- ───── OFFERS ───── -->
+<section class="sec-pad offers-wrap" id="offers">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2 class="sec-title">Exclusive <span>Offers</span></h2>
+    </div>
+    <div class="offers-grid reveal" id="offersGrid"></div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div class="fi"><i class="fas fa-film"></i></div>
+          BOX<span>OFFICE</span>
+        </div>
+        <p class="footer-desc">Redefining the movie experience with state-of-the-art technology, Dolby Atmos sound, and unparalleled comfort across all our premium screens.</p>
+        <div class="social-row">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home"><i class="fas fa-chevron-right"></i>Home</a></li>
+          <li><a href="#now-showing"><i class="fas fa-chevron-right"></i>Now Showing</a></li>
+          <li><a href="#coming-soon"><i class="fas fa-chevron-right"></i>Coming Soon</a></li>
+          <li><a href="#offers"><i class="fas fa-chevron-right"></i>Offers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i>FAQ</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i>Privacy Policy</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i>Terms of Service</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i>Refund Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <p class="footer-desc">Get latest updates on new movies &amp; exclusive offers.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="Your email address">
+          <button><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 BOXOFFICE. All rights reserved. | The Ultimate Cinema Experience</p>
+    <div class="pay-icons">
+      <i class="fab fa-cc-visa"></i>
+      <i class="fab fa-cc-mastercard"></i>
+      <i class="fab fa-cc-amex"></i>
+      <i class="fab fa-cc-paypal"></i>
+      <i class="fab fa-google-pay"></i>
+    </div>
+  </div>
+</footer>
+
+<!-- ───── MODAL ───── -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <div class="modal-head">
+      <h2 id="modalTitle">Book Tickets</h2>
+      <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
