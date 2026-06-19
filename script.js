@@ -1,175 +1,130 @@
-/* =============================================================
-   CINEMAX — script.js
-   20 films · Seat map · Gateway payment (Card/UPI/QR/Wallet)
-   Print ticket · My Bookings · Search · Counters · Aurora BG
-   ============================================================= */
 'use strict';
 
 /* ─── DATA ─── */
 const MOVIES = [
   // BOLLYWOOD
-  {
-    id: 1, title: 'Kantara', genre: 'Action/Drama', lang: 'Hindi', dur: '2h 30m', rating: 8.5, seats: 45, cat: 'bollywood', isNew: false,
-    img: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=420&h=630&fit=crop&q=75',
-    price: { reg: 150, prem: 250, vip: 350 }
-  },
-  {
-    id: 2, title: 'Stree 3', genre: 'Horror/Comedy', lang: 'Hindi', dur: '2h 10m', rating: 8.1, seats: 38, cat: 'bollywood', isNew: true,
-    img: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=420&h=630&fit=crop&q=75',
-    price: { reg: 150, prem: 250, vip: 350 }
-  },
-  {
-    id: 3, title: 'Animal Park', genre: 'Action/Thriller', lang: 'Hindi', dur: '2h 45m', rating: 7.9, seats: 29, cat: 'bollywood', isNew: true,
-    img: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=420&h=630&fit=crop&q=75',
-    price: { reg: 150, prem: 250, vip: 350 }
-  },
-  {
-    id: 4, title: 'Jolly LLB 3', genre: 'Comedy/Drama', lang: 'Hindi', dur: '2h 15m', rating: 7.8, seats: 52, cat: 'bollywood', isNew: false,
-    img: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=420&h=630&fit=crop&q=75',
-    price: { reg: 150, prem: 250, vip: 350 }
-  },
-  {
-    id: 5, title: 'Dunki 2', genre: 'Drama/Comedy', lang: 'Hindi', dur: '2h 20m', rating: 7.5, seats: 61, cat: 'bollywood', isNew: false,
-    img: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=420&h=630&fit=crop&q=75',
-    price: { reg: 150, prem: 250, vip: 350 }
-  },
+  {id:1,  title:'Kantara',              genre:'Action/Drama',       lang:'Hindi',    dur:'2h 30m', rating:8.5, seats:45, cat:'bollywood', isNew:false,
+   img:'image/kantara.jpg',
+   price:{reg:150,prem:250,vip:350}},
+  {id:2,  title:'Stree 3',              genre:'Horror/Comedy',      lang:'Hindi',    dur:'2h 10m', rating:8.1, seats:38, cat:'bollywood', isNew:true,
+   img:'image/stree3.jpg',
+   price:{reg:150,prem:250,vip:350}},
+  {id:3,  title:'Animal Park',          genre:'Action/Thriller',    lang:'Hindi',    dur:'2h 45m', rating:7.9, seats:29, cat:'bollywood', isNew:true,
+   img:'image/Anima.jpg',
+   price:{reg:150,prem:250,vip:350}},
+  {id:4,  title:'Jolly LLB 3',          genre:'Comedy/Drama',       lang:'Hindi',    dur:'2h 15m', rating:7.8, seats:52, cat:'bollywood', isNew:false,
+   img:'image/JollyLLB3.jpg',
+   price:{reg:150,prem:250,vip:350}},
+  {id:5,  title:'Dunki 2',              genre:'Drama/Comedy',       lang:'Hindi',    dur:'2h 20m', rating:7.5, seats:61, cat:'bollywood', isNew:false,
+   img:'image/Dunki.jpg',
+   price:{reg:150,prem:250,vip:350}},
   // HOLLYWOOD
-  {
-    id: 6, title: 'Dune: Part Two', genre: 'Sci-Fi/Action', lang: 'English', dur: '2h 45m', rating: 8.9, seats: 63, cat: 'hollywood', isNew: false,
-    img: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=420&h=630&fit=crop&q=75',
-    price: { reg: 200, prem: 350, vip: 500 }
-  },
-  {
-    id: 7, title: 'Oppenheimer', genre: 'Biography/Thriller', lang: 'English', dur: '3h 00m', rating: 9.2, seats: 41, cat: 'hollywood', isNew: false,
-    img: 'https://images.unsplash.com/photo-1523207911345-32501502db22?w=420&h=630&fit=crop&q=75',
-    price: { reg: 200, prem: 350, vip: 500 }
-  },
-  {
-    id: 8, title: 'Final Destination 7', genre: 'Horror/Thriller', lang: 'English', dur: '1h 54m', rating: 8.3, seats: 57, cat: 'hollywood', isNew: true,
-    img: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=420&h=630&fit=crop&q=75',
-    price: { reg: 200, prem: 350, vip: 500 }
-  },
-  {
-    id: 9, title: 'Mission: Impossible 8', genre: 'Action/Adventure', lang: 'English', dur: '2h 43m', rating: 8.7, seats: 48, cat: 'hollywood', isNew: true,
-    img: 'https://images.unsplash.com/photo-1574267432553-4b4628081c31?w=420&h=630&fit=crop&q=75',
-    price: { reg: 200, prem: 350, vip: 500 }
-  },
-  {
-    id: 10, title: 'Avatar 3', genre: 'Sci-Fi/Fantasy', lang: 'English', dur: '3h 10m', rating: 8.5, seats: 35, cat: 'hollywood', isNew: true,
-    img: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=420&h=630&fit=crop&q=75',
-    price: { reg: 250, prem: 400, vip: 600 }
-  },
-  {
-    id: 11, title: 'Thor: New Era', genre: 'Action/Fantasy', lang: 'English', dur: '2h 22m', rating: 7.6, seats: 44, cat: 'hollywood', isNew: true,
-    img: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=420&h=630&fit=crop&q=75',
-    price: { reg: 200, prem: 350, vip: 500 }
-  },
-  {
-    id: 12, title: 'Spider-Man: Nexus', genre: 'Action/Superhero', lang: 'English', dur: '2h 28m', rating: 8.4, seats: 50, cat: 'hollywood', isNew: true,
-    img: 'https://images.unsplash.com/photo-1620336655052-b57986f5a26a?w=420&h=630&fit=crop&q=75',
-    price: { reg: 200, prem: 350, vip: 500 }
-  },
+  {id:6,  title:'Dune: Part Two',       genre:'Sci-Fi/Action',      lang:'English',  dur:'2h 45m', rating:8.9, seats:63, cat:'hollywood', isNew:false,
+   img:'image/dune2.jpg',
+   price:{reg:200,prem:350,vip:500}},
+  {id:7,  title:'Oppenheimer',          genre:'Biography/Thriller', lang:'English',  dur:'3h 00m', rating:9.2, seats:41, cat:'hollywood', isNew:false,
+   img:'image/oppenheimer.jpg',
+   price:{reg:200,prem:350,vip:500}},
+  {id:8,  title:'Final Destination 7',  genre:'Horror/Thriller',    lang:'English',  dur:'1h 54m', rating:8.3, seats:57, cat:'hollywood', isNew:true,
+   img:'image/Final Destination.jpg',
+   price:{reg:200,prem:350,vip:500}},
+  {id:9,  title:'Mission: Impossible 8',genre:'Action/Adventure',   lang:'English',  dur:'2h 43m', rating:8.7, seats:48, cat:'hollywood', isNew:true,
+   img:'image/Mission.jpg',
+   price:{reg:200,prem:350,vip:500}},
+  {id:10, title:'Avatar 3',             genre:'Sci-Fi/Fantasy',     lang:'English',  dur:'3h 10m', rating:8.5, seats:35, cat:'hollywood', isNew:true,
+   img:'image/Avatar 3.jpg',
+   price:{reg:250,prem:400,vip:600}},
+  {id:11, title:'sunny sanskari ki tulsi kumari',        genre:'Drama/Comedy',     lang:'Hindi',  dur:'2h 22m', rating:7.6, seats:44, cat:'hollywood', isNew:true,
+   img:'image/sunny.jpg',
+   price:{reg:200,prem:350,vip:500}},
+  {id:12, title:'Dhurandhar',    genre:'Action/Adventure',   lang:'Hindi',  dur:'4h 28m', rating:8.4, seats:50, cat:'hollywood', isNew:true,
+   img:'image/spiderman-nexus.jpg',
+   price:{reg:200,prem:350,vip:500}},
   // SOUTH INDIAN
-  {
-    id: 13, title: 'KGF: Chapter 3', genre: 'Action', lang: 'Kannada', dur: '2h 58m', rating: 9.1, seats: 52, cat: 'south', isNew: true,
-    img: 'https://images.unsplash.com/photo-1604514628550-37477afdf4e3?w=420&h=630&fit=crop&q=75',
-    price: { reg: 150, prem: 250, vip: 350 }
-  },
-  {
-    id: 14, title: 'RRR 2', genre: 'Action/Drama', lang: 'Telugu', dur: '3h 07m', rating: 9.3, seats: 44, cat: 'south', isNew: true,
-    img: 'https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=420&h=630&fit=crop&q=75',
-    price: { reg: 150, prem: 250, vip: 350 }
-  },
-  {
-    id: 15, title: 'Pushpa: The Rule', genre: 'Action/Drama', lang: 'Telugu', dur: '3h 00m', rating: 8.7, seats: 40, cat: 'south', isNew: false,
-    img: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=420&h=630&fit=crop&q=75',
-    price: { reg: 150, prem: 250, vip: 350 }
-  },
-  {
-    id: 16, title: 'Kalki 2898 AD', genre: 'Sci-Fi/Action', lang: 'Telugu', dur: '2h 58m', rating: 8.9, seats: 33, cat: 'south', isNew: true,
-    img: 'https://images.unsplash.com/photo-1518709911915-712d5fd04677?w=420&h=630&fit=crop&q=75',
-    price: { reg: 180, prem: 280, vip: 400 }
-  },
-  {
-    id: 17, title: 'Vikram 2', genre: 'Action/Thriller', lang: 'Tamil', dur: '2h 55m', rating: 8.8, seats: 36, cat: 'south', isNew: false,
-    img: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=420&h=630&fit=crop&q=75',
-    price: { reg: 150, prem: 250, vip: 350 }
-  },
-  {
-    id: 18, title: 'Leo 2', genre: 'Action/Thriller', lang: 'Tamil', dur: '2h 48m', rating: 8.4, seats: 55, cat: 'south', isNew: false,
-    img: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=420&h=630&fit=crop&q=75',
-    price: { reg: 150, prem: 250, vip: 350 }
-  },
-  {
-    id: 19, title: 'Manjummel Boys 2', genre: 'Thriller/Drama', lang: 'Malayalam', dur: '2h 25m', rating: 8.6, seats: 39, cat: 'south', isNew: false,
-    img: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=420&h=630&fit=crop&q=75',
-    price: { reg: 150, prem: 250, vip: 350 }
-  },
-  {
-    id: 20, title: 'Salaar 2', genre: 'Action', lang: 'Telugu', dur: '2h 50m', rating: 8.0, seats: 50, cat: 'south', isNew: true,
-    img: 'https://images.unsplash.com/photo-1536240478700-b869ad10e128?w=420&h=630&fit=crop&q=75',
-    price: { reg: 150, prem: 250, vip: 350 }
-  },
+  {id:13, title:'KGF: Chapter 3',       genre:'Action',             lang:'Kannada',  dur:'2h 58m', rating:9.1, seats:52, cat:'south', isNew:true,
+   img:'image/kgf3.jpg',
+   price:{reg:150,prem:250,vip:350}},
+  {id:14, title:'RRR 2',                genre:'Action/Drama',       lang:'Telugu',   dur:'3h 07m', rating:9.3, seats:44, cat:'south', isNew:true,
+   img:'image/RRR.jpg',
+   price:{reg:150,prem:250,vip:350}},
+  {id:15, title:'Pushpa: The Rule',     genre:'Action/Drama',       lang:'Telugu',   dur:'3h 00m', rating:8.7, seats:40, cat:'south', isNew:false,
+   img:'image/pushpa.jpg',
+   price:{reg:150,prem:250,vip:350}},
+  {id:16, title:'Kalki 2898 AD',        genre:'Sci-Fi/Action',      lang:'Telugu',   dur:'2h 58m', rating:8.9, seats:33, cat:'south', isNew:true,
+   img:'image/kalki.jpg',
+   price:{reg:180,prem:280,vip:400}},
+  {id:17, title:'Vikram 2',             genre:'Action/Thriller',    lang:'Tamil',    dur:'2h 55m', rating:8.8, seats:36, cat:'south', isNew:false,
+   img:'image/Vikram.jpg',
+   price:{reg:150,prem:250,vip:350}},
+  {id:18, title:'Leo 2',                genre:'Action/Thriller',    lang:'Tamil',    dur:'2h 48m', rating:8.4, seats:55, cat:'south', isNew:false,
+   img:'image/leo.jpg',
+   price:{reg:150,prem:250,vip:350}},
+  {id:19, title:'Manjummel Boys 2',     genre:'Thriller/Drama',     lang:'Malayalam',dur:'2h 25m', rating:8.6, seats:39, cat:'south', isNew:false,
+   img:'image/Manjummel Boys 2.jpg',
+   price:{reg:150,prem:250,vip:350}},
+  {id:20, title:'Salaar 2',             genre:'Action',             lang:'Telugu',   dur:'2h 50m', rating:8.0, seats:50, cat:'south', isNew:true,
+   img:'image/salaar2.jpg',
+   price:{reg:150,prem:250,vip:350}},
 ];
 
 const COMING = [
-  { title: 'Cars 4', date: 'Aug 2026', img: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=300&h=450&fit=crop&q=75' },
-  { title: 'Border 2', date: 'Jan 2027', img: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=450&fit=crop&q=75' },
-  { title: 'Harry Potter Legacy', date: 'Dec 2026', img: 'https://images.unsplash.com/photo-1551269901-5c5e14c25df7?w=300&h=450&fit=crop&q=75' },
-  { title: 'Dhurandhar', date: 'Oct 2026', img: 'https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?w=300&h=450&fit=crop&q=75' },
-  { title: 'Baahubali 3', date: 'Nov 2026', img: 'https://images.unsplash.com/photo-1585647347483-22b66260dfff?w=300&h=450&fit=crop&q=75' },
-  { title: 'Avengers: Doomsday', date: 'May 2026', img: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=300&h=450&fit=crop&q=75' },
+  {title:'Cars 4',             date:'Aug 2026', img:'image/cars4.jpg'},
+  {title:'Border 2',           date:'Jan 2027', img:'image/border2.jpg'},
+  {title:'Harry Potter Legacy',date:'Dec 2026', img:'image/harry-potter-legacy.jpg'},
+  {title:'Dhurandhar',         date:'Oct 2026', img:'image/dhurandhar.jpg'},
+  {title:'Baahubali 3',        date:'Nov 2026', img:'image/baahubali3.jpg'},
+  {title:'Avengers: Doomsday', date:'May 2026', img:'image/avengers-doomsday.jpg'},
 ];
 
 const OFFERS = [
-  { icon: 'fa-graduation-cap', title: 'Student Special', desc: '20% off all shows with valid student ID on weekdays.', code: 'STUDENT20' },
-  { icon: 'fa-calendar-week', title: 'Weekend Bliss', desc: 'Buy 2 seats, get 1 free on Saturday and Sunday screenings.', code: 'WEEKEND3' },
-  { icon: 'fa-credit-card', title: 'Card Rewards', desc: '15% cashback on HDFC, ICICI and Axis credit & debit cards.', code: 'CASHBACK15' },
-  { icon: 'fa-users', title: 'Group Booking', desc: '₹50 off per ticket when booking 5 or more seats at once.', code: 'GROUP50' },
-  { icon: 'fa-birthday-cake', title: 'Birthday Treat', desc: 'Free premium popcorn combo on your birthday. Show ID at entry.', code: 'BDAY2026' },
-  { icon: 'fa-sun', title: 'Morning Show', desc: 'Flat 30% off on all shows before noon, every single day.', code: 'EARLYBIRD' },
+  {icon:'fa-graduation-cap', title:'Student Special',  desc:'20% off all shows with valid student ID on weekdays.',          code:'STUDENT20'},
+  {icon:'fa-calendar-week',  title:'Weekend Bliss',    desc:'Buy 2 seats, get 1 free on Saturday and Sunday screenings.',    code:'WEEKEND3'},
+  {icon:'fa-credit-card',    title:'Card Rewards',     desc:'15% cashback on HDFC, ICICI and Axis credit & debit cards.',    code:'CASHBACK15'},
+  {icon:'fa-users',          title:'Group Booking',    desc:'₹50 off per ticket when booking 5 or more seats at once.',      code:'GROUP50'},
+  {icon:'fa-birthday-cake',  title:'Birthday Treat',   desc:'Free premium popcorn combo on your birthday. Show ID at entry.',code:'BDAY2026'},
+  {icon:'fa-sun',            title:'Morning Show',     desc:'Flat 30% off on all shows before noon, every single day.',      code:'EARLYBIRD'},
 ];
 
-const SHOWS = ['10:00 AM', '12:30 PM', '03:15 PM', '06:00 PM', '09:00 PM', '11:45 PM'];
-const ROWS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+const SHOWS = ['10:00 AM','12:30 PM','03:15 PM','06:00 PM','09:00 PM','11:45 PM'];
+const ROWS  = ['A','B','C','D','E','F','G','H','I'];
 const SEATS_PER = 12;
 
 /* ─── STATE ─── */
-let curMovie = null;
-let selSeats = [];
-let booked = [];
-let step = 1;
-let selShow = '';
-let bData = {};
-let selUPI = '';
-let selWallet = '';
-let cdTimer = null;
+let curMovie   = null;
+let selSeats   = [];
+let booked     = [];
+let step       = 1;
+let selShow    = '';
+let bData      = {};
+let selUPI     = '';
+let selWallet  = '';
+let cdTimer    = null;
 let toastTimer = null;
 
 /* ═══════════════════════════════════
    AURORA BACKGROUND
 ═══════════════════════════════════ */
-(function aurora() {
-  const c = document.getElementById('aurora');
+(function aurora(){
+  const c   = document.getElementById('aurora');
   const ctx = c.getContext('2d');
   let W, H, t = 0;
-  function resize() { W = c.width = window.innerWidth; H = c.height = window.innerHeight; }
+  function resize(){ W=c.width=window.innerWidth; H=c.height=window.innerHeight; }
   resize(); window.addEventListener('resize', resize);
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
+  function draw(){
+    ctx.clearRect(0,0,W,H);
     const orbs = [
-      { x: .15, y: .3, r: .4, col: 'rgba(124,58,237,' },
-      { x: .8, y: .15, r: .35, col: 'rgba(201,168,76,' },
-      { x: .5, y: .7, r: .3, col: 'rgba(232,100,122,' },
+      {x:.15, y:.3,  r:.4, col:'rgba(124,58,237,'},
+      {x:.8,  y:.15, r:.35,col:'rgba(201,168,76,'},
+      {x:.5,  y:.7,  r:.3, col:'rgba(232,100,122,'},
     ];
-    orbs.forEach((o, i) => {
-      const px = (o.x + Math.sin(t * .0008 + i) * 0.07) * W;
-      const py = (o.y + Math.cos(t * .0006 + i) * 0.06) * H;
-      const rad = o.r * Math.min(W, H);
-      const g = ctx.createRadialGradient(px, py, 0, px, py, rad);
-      g.addColorStop(0, o.col + '0.18)');
-      g.addColorStop(1, o.col + '0)');
-      ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    orbs.forEach((o,i)=>{
+      const px = (o.x + Math.sin(t*.0008+i)*0.07) * W;
+      const py = (o.y + Math.cos(t*.0006+i)*0.06) * H;
+      const rad= o.r * Math.min(W,H);
+      const g  = ctx.createRadialGradient(px,py,0,px,py,rad);
+      g.addColorStop(0, o.col+'0.18)');
+      g.addColorStop(1, o.col+'0)');
+      ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
     });
     t++; requestAnimationFrame(draw);
   }
@@ -179,22 +134,22 @@ let toastTimer = null;
 /* ═══════════════════════════════════
    HERO REEL STRIP
 ═══════════════════════════════════ */
-(function buildReel() {
+(function buildReel(){
   const wrap = document.getElementById('heroReel');
   const COL_COUNT = Math.ceil(window.innerWidth / 140) + 1;
-  const imgs = MOVIES.map(m => m.img);
-  for (let c = 0; c < COL_COUNT; c++) {
+  const imgs = MOVIES.map(m=>m.img);
+  for(let c=0; c<COL_COUNT; c++){
     const col = document.createElement('div');
     col.className = 'reel-col';
-    col.style.setProperty('--dur', (18 + c * 4) + 's');
+    col.style.setProperty('--dur', (18+c*4)+'s');
     // duplicate for seamless loop
     const pool = [...imgs, ...imgs];
-    pool.sort(() => Math.random() - .5);
+    pool.sort(()=>Math.random()-.5);
     const doubled = [...pool, ...pool];
-    doubled.forEach(src => {
+    doubled.forEach(src=>{
       const img = document.createElement('img');
-      img.src = src; img.loading = 'lazy'; img.alt = '';
-      img.onerror = () => { img.style.background = '#1a1a28'; };
+      img.src = src; img.loading = 'lazy'; img.alt='';
+      img.onerror = ()=>{ img.style.background='#1a1a28'; };
       col.appendChild(img);
     });
     wrap.appendChild(col);
@@ -204,60 +159,60 @@ let toastTimer = null;
 /* ═══════════════════════════════════
    TICKER
 ═══════════════════════════════════ */
-(function buildTicker() {
+(function buildTicker(){
   const items = [
-    '4K LASER PROJECTION', 'DOLBY ATMOS SOUND', 'LUXURY RECLINERS',
-    '20 FILMS NOW SHOWING', 'IN-SEAT DINING', 'DOLBY VISION HDR',
-    'BOOK IN 60 SECONDS', 'INSTANT E-TICKETS', 'PREMIUM CONCESSIONS',
+    '4K LASER PROJECTION','DOLBY ATMOS SOUND','LUXURY RECLINERS',
+    '20 FILMS NOW SHOWING','IN-SEAT DINING','DOLBY VISION HDR',
+    'BOOK IN 60 SECONDS','INSTANT E-TICKETS','PREMIUM CONCESSIONS',
   ];
   const track = document.getElementById('tickerTrack');
-  const all = [...items, ...items, ...items];
-  track.innerHTML = all.map(i => `<span class="t-item"><span class="t-dot">◆</span>${i}</span>`).join('');
+  const all   = [...items,...items,...items];
+  track.innerHTML = all.map(i=>`<span class="t-item"><span class="t-dot">◆</span>${i}</span>`).join('');
 })();
 
 /* ═══════════════════════════════════
    NAV SCROLL + LINKS
 ═══════════════════════════════════ */
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll',()=>{
   document.getElementById('siteHeader').classList.toggle('solid', window.scrollY > 40);
 });
-document.getElementById('ham').addEventListener('click', function () {
+document.getElementById('ham').addEventListener('click', function(){
   this.classList.toggle('open');
   document.getElementById('mobNav').classList.toggle('open');
 });
-function closeMob() {
+function closeMob(){
   document.getElementById('ham').classList.remove('open');
   document.getElementById('mobNav').classList.remove('open');
 }
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
     const t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); closeMob(); }
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); closeMob(); }
   });
 });
 
 /* ═══════════════════════════════════
    SEARCH
 ═══════════════════════════════════ */
-document.getElementById('searchBtn').addEventListener('click', () => {
+document.getElementById('searchBtn').addEventListener('click',()=>{
   const d = document.getElementById('searchDrop');
   d.classList.toggle('open');
-  if (d.classList.contains('open')) setTimeout(() => document.getElementById('searchInp').focus(), 200);
+  if(d.classList.contains('open')) setTimeout(()=>document.getElementById('searchInp').focus(),200);
 });
-document.getElementById('searchClose')?.addEventListener('click', () => {
+document.getElementById('searchClose')?.addEventListener('click',()=>{
   document.getElementById('searchDrop').classList.remove('open');
 });
-document.getElementById('searchInp').addEventListener('input', function () {
+document.getElementById('searchInp').addEventListener('input', function(){
   const q = this.value.trim().toLowerCase();
   const hits = document.getElementById('searchHits');
-  if (!q) { hits.innerHTML = ''; return; }
-  const res = MOVIES.filter(m =>
-    m.title.toLowerCase().includes(q) ||
-    m.genre.toLowerCase().includes(q) ||
+  if(!q){ hits.innerHTML=''; return; }
+  const res = MOVIES.filter(m=>
+    m.title.toLowerCase().includes(q)||
+    m.genre.toLowerCase().includes(q)||
     m.lang.toLowerCase().includes(q)
-  ).slice(0, 8);
-  if (!res.length) { hits.innerHTML = '<span class="s-empty">No films found</span>'; return; }
-  hits.innerHTML = res.map(m => `
+  ).slice(0,8);
+  if(!res.length){ hits.innerHTML='<span class="s-empty">No films found</span>'; return; }
+  hits.innerHTML = res.map(m=>`
     <span class="s-chip" onclick="openBooking(${m.id});document.getElementById('searchDrop').classList.remove('open')">
       <img src="${m.img}" alt="${m.title}" onerror="this.style.display='none'">
       ${m.title} <span style="color:var(--ink3);font-size:.68rem">· ${m.lang}</span>
@@ -267,55 +222,55 @@ document.getElementById('searchInp').addEventListener('input', function () {
 /* ═══════════════════════════════════
    REVEAL OBSERVER
 ═══════════════════════════════════ */
-const revObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: .1 });
-document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+const revObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 
 /* ═══════════════════════════════════
    ANIMATED COUNTERS
 ═══════════════════════════════════ */
-const counterObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
+const counterObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting) return;
     const el = e.target;
     const target = +el.dataset.target;
-    let cur = 0; const step = Math.ceil(target / 60);
-    const t = setInterval(() => {
-      cur = Math.min(cur + step, target);
+    let cur = 0; const step = Math.ceil(target/60);
+    const t = setInterval(()=>{
+      cur = Math.min(cur+step, target);
       el.textContent = cur;
-      if (cur >= target) clearInterval(t);
-    }, 22);
+      if(cur>=target) clearInterval(t);
+    },22);
     counterObs.unobserve(el);
   });
-}, { threshold: .5 });
-document.querySelectorAll('.big-num[data-target],.counter[data-target]').forEach(el => counterObs.observe(el));
+},{threshold:.5});
+document.querySelectorAll('.big-num[data-target],.counter[data-target]').forEach(el=>counterObs.observe(el));
 
 /* ═══════════════════════════════════
    RENDER FILMS
 ═══════════════════════════════════ */
-let curCat = 'all';
+let curCat  = 'all';
 let curSort = 'default';
 
-function getFilms() {
-  let list = curCat === 'all' ? [...MOVIES] : MOVIES.filter(m => m.cat === curCat);
-  if (curSort === 'rating') list.sort((a, b) => b.rating - a.rating);
-  else if (curSort === 'az') list.sort((a, b) => a.title.localeCompare(b.title));
-  else if (curSort === 'seats') list.sort((a, b) => b.seats - a.seats);
+function getFilms(){
+  let list = curCat==='all' ? [...MOVIES] : MOVIES.filter(m=>m.cat===curCat);
+  if(curSort==='rating') list.sort((a,b)=>b.rating-a.rating);
+  else if(curSort==='az') list.sort((a,b)=>a.title.localeCompare(b.title));
+  else if(curSort==='seats') list.sort((a,b)=>b.seats-a.seats);
   return list;
 }
 
-function renderFilms() {
+function renderFilms(){
   const grid = document.getElementById('filmGrid');
   const list = getFilms();
   document.getElementById('countTag').innerHTML =
-    `<strong>${list.length}</strong> film${list.length !== 1 ? 's' : ''} found`;
+    `<strong>${list.length}</strong> film${list.length!==1?'s':''} found`;
   grid.innerHTML = '';
-  list.forEach((m, i) => {
-    const pct = Math.min(100, Math.round((m.seats / 80) * 100));
+  list.forEach((m,i)=>{
+    const pct = Math.min(100,Math.round((m.seats/80)*100));
     const card = document.createElement('div');
     card.className = 'film-card reveal';
-    card.style.transitionDelay = `${i * 35}ms`;
+    card.style.transitionDelay = `${i*35}ms`;
     card.innerHTML = `
       <div class="fc-poster">
         <img src="${m.img}" alt="${m.title}" loading="lazy"
@@ -327,7 +282,7 @@ function renderFilms() {
         <div class="fc-badges">
           <span class="fc-badge b-rating"><i class="fas fa-star"></i> ${m.rating}</span>
           <span class="fc-badge b-lang">${m.lang}</span>
-          ${m.isNew ? '<span class="fc-badge b-new">NEW</span>' : ''}
+          ${m.isNew?'<span class="fc-badge b-new">NEW</span>':''}
         </div>
       </div>
       <div class="fc-body">
@@ -345,23 +300,23 @@ function renderFilms() {
 
 // FIX: Changed from document.getElementById('filters') to document.querySelector('.filter-row')
 document.querySelector('.filter-row').addEventListener('click', e => {
-  const btn = e.target.closest('.filt'); if (!btn) return;
+  const btn = e.target.closest('.filt'); if(!btn) return;
   document.querySelectorAll('.filt').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   curCat = btn.dataset.cat;
   renderFilms();
 });
 
-document.getElementById('sortSel').addEventListener('change', e => {
+document.getElementById('sortSel').addEventListener('change',e=>{
   curSort = e.target.value; renderFilms();
 });
 
 /* ═══════════════════════════════════
    COMING SOON
 ═══════════════════════════════════ */
-function renderComing() {
+function renderComing(){
   const row = document.getElementById('comingRow');
-  COMING.forEach(m => {
+  COMING.forEach(m=>{
     const c = document.createElement('div');
     c.className = 'coming-card';
     c.innerHTML = `
@@ -382,9 +337,9 @@ function renderComing() {
 /* ═══════════════════════════════════
    OFFERS
 ═══════════════════════════════════ */
-function renderOffers() {
+function renderOffers(){
   const row = document.getElementById('offersRow');
-  OFFERS.forEach(o => {
+  OFFERS.forEach(o=>{
     const c = document.createElement('div');
     c.className = 'offer-card reveal';
     c.innerHTML = `
@@ -396,56 +351,56 @@ function renderOffers() {
     revObs.observe(c);
   });
 }
-function copyCode(el, code) {
-  navigator.clipboard.writeText(code).catch(() => { });
-  showToast('✅', `Code "${code}" copied!`);
+function copyCode(el, code){
+  navigator.clipboard.writeText(code).catch(()=>{});
+  showToast('✅',`Code "${code}" copied!`);
 }
 
 /* ═══════════════════════════════════
    NEWSLETTER
 ═══════════════════════════════════ */
-function subscribeNL() {
+function subscribeNL(){
   const v = document.getElementById('nlEmail').value.trim();
-  const ok = document.getElementById('nlOk');
-  if (!v || !v.includes('@')) { ok.textContent = 'Please enter a valid email.'; ok.style.color = 'var(--rose)'; return; }
-  ok.textContent = 'You\'re subscribed! 🎬'; ok.style.color = 'var(--gold)';
-  document.getElementById('nlEmail').value = '';
+  const ok= document.getElementById('nlOk');
+  if(!v||!v.includes('@')){ ok.textContent='Please enter a valid email.'; ok.style.color='var(--rose)'; return; }
+  ok.textContent='You\'re subscribed! 🎬'; ok.style.color='var(--gold)';
+  document.getElementById('nlEmail').value='';
 }
 
 /* ═══════════════════════════════════
    MODAL CORE
 ═══════════════════════════════════ */
-function openModal(eyebrow, title, contentHTML) {
+function openModal(eyebrow, title, contentHTML){
   document.getElementById('modalEyebrow').textContent = eyebrow;
-  document.getElementById('modalTitle').textContent = title;
-  document.getElementById('modalContent').innerHTML = contentHTML;
+  document.getElementById('modalTitle').textContent   = title;
+  document.getElementById('modalContent').innerHTML   = contentHTML;
   document.getElementById('modalBack').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-function closeModal() {
+function closeModal(){
   document.getElementById('modalBack').classList.remove('open');
   document.body.style.overflow = '';
-  if (cdTimer) { clearInterval(cdTimer); cdTimer = null; }
+  if(cdTimer){ clearInterval(cdTimer); cdTimer=null; }
 }
 document.getElementById('closeBtn').addEventListener('click', closeModal);
-document.getElementById('modalBack').addEventListener('click', e => {
-  if (e.target === document.getElementById('modalBack')) closeModal();
+document.getElementById('modalBack').addEventListener('click', e=>{
+  if(e.target===document.getElementById('modalBack')) closeModal();
 });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 
 /* ─── Steps bar ─── */
-function renderSteps() {
-  const defs = ['Select Seats', 'Payment', 'Confirmation'];
+function renderSteps(){
+  const defs = ['Select Seats','Payment','Confirmation'];
   let html = '';
-  defs.forEach((lbl, i) => {
-    const n = i + 1;
-    const done = step > n, active = step === n;
-    html += `<div class="step-item ${active ? 'active' : ''} ${done ? 'done' : ''}">
-      <div class="step-num">${done ? '<i class="fas fa-check"></i>' : n}</div>
+  defs.forEach((lbl,i)=>{
+    const n = i+1;
+    const done = step>n, active = step===n;
+    html += `<div class="step-item ${active?'active':''} ${done?'done':''}">
+      <div class="step-num">${done?'<i class="fas fa-check"></i>':n}</div>
       <div class="step-lbl">${lbl}</div>
     </div>`;
-    if (i < defs.length - 1)
-      html += `<div class="step-line ${done ? 'done' : ''}"></div>`;
+    if(i<defs.length-1)
+      html += `<div class="step-line ${done?'done':''}"></div>`;
   });
   document.getElementById('stepsBar').innerHTML = html;
 }
@@ -453,38 +408,38 @@ function renderSteps() {
 /* ═══════════════════════════════════
    STEP 1 — SEAT SELECTION
 ═══════════════════════════════════ */
-function openBooking(id) {
-  curMovie = MOVIES.find(m => m.id === id);
-  selSeats = [];
-  booked = genBooked();
-  selShow = '';
-  step = 1;
+function openBooking(id){
+  curMovie  = MOVIES.find(m=>m.id===id);
+  selSeats  = [];
+  booked    = genBooked();
+  selShow   = '';
+  step      = 1;
   renderSteps();
   openModal('SELECT SEATS', curMovie.title, buildSeatHTML());
   renderSeatMap();
 }
 
-function genBooked() {
-  const arr = [], n = Math.floor(Math.random() * 25) + 12;
-  while (arr.length < n) {
-    const r = ROWS[Math.floor(Math.random() * ROWS.length)];
-    const s = Math.floor(Math.random() * SEATS_PER) + 1;
-    const id = `${r}${s}`; if (!arr.includes(id)) arr.push(id);
+function genBooked(){
+  const arr=[], n=Math.floor(Math.random()*25)+12;
+  while(arr.length<n){
+    const r=ROWS[Math.floor(Math.random()*ROWS.length)];
+    const s=Math.floor(Math.random()*SEATS_PER)+1;
+    const id=`${r}${s}`; if(!arr.includes(id)) arr.push(id);
   }
   return arr;
 }
 
-function rowType(r) {
-  if (['A', 'B', 'C'].includes(r)) return { t: 'reg', label: 'Regular', price: curMovie.price.reg };
-  if (['D', 'E', 'F'].includes(r)) return { t: 'prem', label: 'Premium', price: curMovie.price.prem };
-  return { t: 'vip', label: 'VIP', price: curMovie.price.vip };
+function rowType(r){
+  if(['A','B','C'].includes(r)) return{t:'reg', label:'Regular', price:curMovie.price.reg};
+  if(['D','E','F'].includes(r)) return{t:'prem',label:'Premium', price:curMovie.price.prem};
+  return                              {t:'vip', label:'VIP',     price:curMovie.price.vip};
 }
 
-function buildSeatHTML() {
+function buildSeatHTML(){
   const m = curMovie;
-  const showBtns = SHOWS.map((s, i) => {
-    const hf = i === 3; // fake one housefull
-    return `<button class="t-btn${hf ? ' hf' : ''}" onclick="pickShow(this,'${s}')" ${hf ? 'disabled' : ''}>${s}${hf ? ' · HOUSEFULL' : ''}</button>`;
+  const showBtns = SHOWS.map((s,i)=>{
+    const hf = i===3; // fake one housefull
+    return `<button class="t-btn${hf?' hf':''}" onclick="pickShow(this,'${s}')" ${hf?'disabled':''}>${s}${hf?' · HOUSEFULL':''}</button>`;
   }).join('');
   return `
   <div class="show-info">
@@ -524,26 +479,26 @@ function buildSeatHTML() {
   </div>`;
 }
 
-function pickShow(btn, show) {
-  document.querySelectorAll('.t-btn').forEach(b => b.classList.remove('sel'));
+function pickShow(btn, show){
+  document.querySelectorAll('.t-btn').forEach(b=>b.classList.remove('sel'));
   btn.classList.add('sel'); selShow = show;
 }
 
-function renderSeatMap() {
-  const grid = document.getElementById('seatGrid'); if (!grid) return;
-  ROWS.forEach(row => {
-    const div = document.createElement('div'); div.className = 's-row';
-    const lbl = document.createElement('div'); lbl.className = 's-lbl'; lbl.textContent = row;
+function renderSeatMap(){
+  const grid = document.getElementById('seatGrid'); if(!grid) return;
+  ROWS.forEach(row=>{
+    const div = document.createElement('div'); div.className='s-row';
+    const lbl = document.createElement('div'); lbl.className='s-lbl'; lbl.textContent=row;
     div.appendChild(lbl);
-    const { t } = rowType(row);
-    for (let i = 1; i <= SEATS_PER; i++) {
-      if (i === 7) { const g = document.createElement('div'); g.className = 's-gap'; div.appendChild(g); }
-      const s = document.createElement('div');
-      const id = `${row}${i}`;
-      s.className = `seat ${t}`;
-      s.textContent = i;
-      s.dataset.id = id; s.dataset.row = row;
-      if (booked.includes(id)) s.classList.add('bk');
+    const {t} = rowType(row);
+    for(let i=1;i<=SEATS_PER;i++){
+      if(i===7){ const g=document.createElement('div'); g.className='s-gap'; div.appendChild(g); }
+      const s=document.createElement('div');
+      const id=`${row}${i}`;
+      s.className=`seat ${t}`;
+      s.textContent=i;
+      s.dataset.id=id; s.dataset.row=row;
+      if(booked.includes(id)) s.classList.add('bk');
       s.addEventListener('click', seatClick);
       div.appendChild(s);
     }
@@ -551,56 +506,56 @@ function renderSeatMap() {
   });
 }
 
-function seatClick(e) {
-  const s = e.currentTarget; if (s.classList.contains('bk')) return;
-  const id = s.dataset.id, row = s.dataset.row;
-  const { t, label, price } = rowType(row);
-  if (s.classList.contains('sel')) {
-    s.classList.remove('sel'); selSeats = selSeats.filter(x => x.id !== id);
+function seatClick(e){
+  const s=e.currentTarget; if(s.classList.contains('bk')) return;
+  const id=s.dataset.id, row=s.dataset.row;
+  const {t,label,price}=rowType(row);
+  if(s.classList.contains('sel')){
+    s.classList.remove('sel'); selSeats=selSeats.filter(x=>x.id!==id);
   } else {
-    if (selSeats.length >= 10) { showToast('⚠️', 'Max 10 seats per booking'); return; }
-    s.classList.add('sel'); selSeats.push({ id, row, t, label, price });
+    if(selSeats.length>=10){showToast('⚠️','Max 10 seats per booking');return;}
+    s.classList.add('sel'); selSeats.push({id,row,t,label,price});
   }
   refreshBar();
 }
 
-function refreshBar() {
-  const total = selSeats.reduce((a, s) => a + s.price, 0);
-  const tags = document.getElementById('bsTags');
-  const tv = document.getElementById('bsTotal');
-  const btn = document.getElementById('proceedBtn');
-  if (!tags) return;
-  tags.innerHTML = selSeats.length
-    ? selSeats.map(s => `<span class="bs-tag ${s.t}">${s.id}</span>`).join('')
+function refreshBar(){
+  const total=selSeats.reduce((a,s)=>a+s.price,0);
+  const tags=document.getElementById('bsTags');
+  const tv=document.getElementById('bsTotal');
+  const btn=document.getElementById('proceedBtn');
+  if(!tags) return;
+  tags.innerHTML=selSeats.length
+    ? selSeats.map(s=>`<span class="bs-tag ${s.t}">${s.id}</span>`).join('')
     : '<span style="color:var(--ink3);font-size:.75rem;font-family:var(--ff-mono)">None selected</span>';
-  tv.textContent = `₹${total}`;
-  btn.disabled = selSeats.length === 0;
+  tv.textContent=`₹${total}`;
+  btn.disabled=selSeats.length===0;
 }
 
 /* ═══════════════════════════════════
    STEP 2 — PAYMENT GATEWAY
 ═══════════════════════════════════ */
-function goToPayment() {
-  if (!selShow) { showToast('⚠️', 'Please select a show time first'); return; }
-  const ticketPrice = selSeats.reduce((a, s) => a + s.price, 0);
-  const convFee = selSeats.length * 5;
-  const sub = ticketPrice + convFee;
-  const gst = +(sub * .18).toFixed(2);
-  const grand = +(sub + gst).toFixed(2);
-  bData = { movie: curMovie, seats: selSeats, show: selShow, ticketPrice, convFee, gst, grand };
-  step = 2; renderSteps();
-  document.getElementById('modalTitle').textContent = 'Secure Checkout';
-  document.getElementById('modalEyebrow').textContent = 'PAYMENT GATEWAY';
-  document.getElementById('modalContent').innerHTML = buildPayHTML();
+function goToPayment(){
+  if(!selShow){ showToast('⚠️','Please select a show time first'); return; }
+  const ticketPrice=selSeats.reduce((a,s)=>a+s.price,0);
+  const convFee=selSeats.length*5;
+  const sub=ticketPrice+convFee;
+  const gst=+(sub*.18).toFixed(2);
+  const grand=+(sub+gst).toFixed(2);
+  bData={movie:curMovie, seats:selSeats, show:selShow, ticketPrice, convFee, gst, grand};
+  step=2; renderSteps();
+  document.getElementById('modalTitle').textContent='Secure Checkout';
+  document.getElementById('modalEyebrow').textContent='PAYMENT GATEWAY';
+  document.getElementById('modalContent').innerHTML=buildPayHTML();
   initPayUI();
 }
 
-function buildPayHTML() {
-  const { movie, seats, ticketPrice, convFee, gst, grand, show } = bData;
-  const byType = {};
-  seats.forEach(s => { if (!byType[s.t]) byType[s.t] = []; byType[s.t].push(s.id); });
-  const chips = Object.entries(byType).map(([t, ids]) =>
-    `<span class="ord-chip" style="background:${t === 'vip' ? '#c94b7a' : t === 'prem' ? '#b5730a' : '#2d6bc4'}">${t.toUpperCase()}: ${ids.join(', ')}</span>`
+function buildPayHTML(){
+  const {movie,seats,ticketPrice,convFee,gst,grand,show}=bData;
+  const byType={};
+  seats.forEach(s=>{if(!byType[s.t])byType[s.t]=[];byType[s.t].push(s.id);});
+  const chips=Object.entries(byType).map(([t,ids])=>
+    `<span class="ord-chip" style="background:${t==='vip'?'#c94b7a':t==='prem'?'#b5730a':'#2d6bc4'}">${t.toUpperCase()}: ${ids.join(', ')}</span>`
   ).join('');
 
   return `<div class="pay-wrap">
@@ -610,7 +565,7 @@ function buildPayHTML() {
       <img src="${movie.img}" alt="${movie.title}" onerror="this.style.display='none'">
       <div class="ord-info">
         <h3>${movie.title}</h3>
-        <p><i class="fas fa-clock"></i> ${show}<br><i class="fas fa-language"></i> ${movie.lang}<br><i class="fas fa-chair"></i> ${seats.length} seat${seats.length > 1 ? 's' : ''}</p>
+        <p><i class="fas fa-clock"></i> ${show}<br><i class="fas fa-language"></i> ${movie.lang}<br><i class="fas fa-chair"></i> ${seats.length} seat${seats.length>1?'s':''}</p>
       </div>
     </div>
     <div class="ord-seats">
@@ -673,13 +628,13 @@ function buildPayHTML() {
     <div class="pane" id="pane-upi">
       <div class="upi-apps">
         ${[
-      { icon: '🇬', name: 'Google Pay' },
-      { icon: '📱', name: 'PhonePe' },
-      { icon: '💳', name: 'Paytm' },
-      { icon: '📦', name: 'Amazon Pay' },
-      { icon: '🇮🇳', name: 'BHIM UPI' },
-      { icon: '➕', name: 'Other UPI' },
-    ].map(u => `<div class="upi-app" onclick="pickUPI(this,'${u.name}')"><div class="ua-icon">${u.icon}</div>${u.name}</div>`).join('')}
+          {icon:'🇬',name:'Google Pay'},
+          {icon:'📱',name:'PhonePe'},
+          {icon:'💳',name:'Paytm'},
+          {icon:'📦',name:'Amazon Pay'},
+          {icon:'🇮🇳',name:'BHIM UPI'},
+          {icon:'➕',name:'Other UPI'},
+        ].map(u=>`<div class="upi-app" onclick="pickUPI(this,'${u.name}')"><div class="ua-icon">${u.icon}</div>${u.name}</div>`).join('')}
       </div>
       <label class="fg" style="margin-top:.5rem">
         <span style="display:block;font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.12em;color:var(--ink3);text-transform:uppercase;margin-bottom:.4rem">Or enter UPI ID</span>
@@ -712,11 +667,11 @@ function buildPayHTML() {
     <div class="pane" id="pane-wallet">
       <div class="wallet-items">
         ${[
-      { icon: '💳', name: 'Paytm Wallet', bal: '₹500' },
-      { icon: '📱', name: 'PhonePe Wallet', bal: '₹1,200' },
-      { icon: '📦', name: 'Amazon Pay', bal: '₹350' },
-      { icon: '🏦', name: 'Mobikwik', bal: '₹800' },
-    ].map(w => `<div class="wal-row" onclick="pickWallet(this,'${w.name}')"><div class="wal-ic">${w.icon}</div><div class="wal-name">${w.name}</div><div class="wal-bal">${w.bal}</div></div>`).join('')}
+          {icon:'💳',name:'Paytm Wallet',   bal:'₹500'},
+          {icon:'📱',name:'PhonePe Wallet', bal:'₹1,200'},
+          {icon:'📦',name:'Amazon Pay',      bal:'₹350'},
+          {icon:'🏦',name:'Mobikwik',        bal:'₹800'},
+        ].map(w=>`<div class="wal-row" onclick="pickWallet(this,'${w.name}')"><div class="wal-ic">${w.icon}</div><div class="wal-name">${w.name}</div><div class="wal-bal">${w.bal}</div></div>`).join('')}
       </div>
     </div>
 
@@ -730,84 +685,84 @@ function buildPayHTML() {
 </div>`;
 }
 
-function initPayUI() {
-  document.querySelectorAll('.m-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.m-tab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));
+function initPayUI(){
+  document.querySelectorAll('.m-tab').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      document.querySelectorAll('.m-tab').forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
       tab.classList.add('active');
       document.getElementById(`pane-${tab.dataset.pane}`).classList.add('active');
     });
   });
   // auto-format card number
-  const cn = document.getElementById('iCN');
-  if (cn) cn.addEventListener('input', e => {
-    let v = e.target.value.replace(/\D/g, '').slice(0, 16);
-    e.target.value = v.replace(/(.{4})/g, '$1  ').trim();
+  const cn=document.getElementById('iCN');
+  if(cn) cn.addEventListener('input',e=>{
+    let v=e.target.value.replace(/\D/g,'').slice(0,16);
+    e.target.value=v.replace(/(.{4})/g,'$1  ').trim();
   });
-  const ex = document.getElementById('iExp');
-  if (ex) ex.addEventListener('input', e => {
-    let v = e.target.value.replace(/\D/g, '').slice(0, 4);
-    if (v.length >= 3) v = v.slice(0, 2) + '/' + v.slice(2);
-    e.target.value = v;
+  const ex=document.getElementById('iExp');
+  if(ex) ex.addEventListener('input',e=>{
+    let v=e.target.value.replace(/\D/g,'').slice(0,4);
+    if(v.length>=3) v=v.slice(0,2)+'/'+v.slice(2);
+    e.target.value=v;
   });
-  const cv = document.getElementById('iCVV');
-  if (cv) cv.addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4); });
+  const cv=document.getElementById('iCVV');
+  if(cv) cv.addEventListener('input',e=>{ e.target.value=e.target.value.replace(/\D/g,'').slice(0,4); });
 }
 
-function pickUPI(el, name) { document.querySelectorAll('.upi-app').forEach(a => a.classList.remove('sel')); el.classList.add('sel'); selUPI = name; }
-function verifyUPI() {
-  const v = (document.getElementById('iUPI') || {}).value || '';
-  if (v && v.includes('@')) showToast('✅', `UPI verified: ${v}`);
-  else showToast('❌', 'Enter a valid UPI ID');
+function pickUPI(el,name){ document.querySelectorAll('.upi-app').forEach(a=>a.classList.remove('sel')); el.classList.add('sel'); selUPI=name; }
+function verifyUPI(){
+  const v=(document.getElementById('iUPI')||{}).value||'';
+  if(v&&v.includes('@')) showToast('✅',`UPI verified: ${v}`);
+  else showToast('❌','Enter a valid UPI ID');
 }
-function pickWallet(el, name) { document.querySelectorAll('.wal-row').forEach(r => r.classList.remove('sel')); el.classList.add('sel'); selWallet = name; }
+function pickWallet(el,name){ document.querySelectorAll('.wal-row').forEach(r=>r.classList.remove('sel')); el.classList.add('sel'); selWallet=name; }
 
-function validateCard() {
-  const fs = [
-    { id: 'iCN', eid: 'eCN', fn: v => v.replace(/\s/g, '').length === 16, msg: 'Enter valid 16-digit card number' },
-    { id: 'iName', eid: 'eName', fn: v => v.trim().length >= 2, msg: 'Enter cardholder name' },
-    { id: 'iExp', eid: 'eExp', fn: v => /^\d{2}\/\d{2}$/.test(v), msg: 'Enter expiry as MM/YY' },
-    { id: 'iCVV', eid: 'eCVV', fn: v => v.length >= 3, msg: 'Enter 3 or 4 digit CVV' },
+function validateCard(){
+  const fs=[
+    {id:'iCN', eid:'eCN', fn:v=>v.replace(/\s/g,'').length===16, msg:'Enter valid 16-digit card number'},
+    {id:'iName',eid:'eName',fn:v=>v.trim().length>=2, msg:'Enter cardholder name'},
+    {id:'iExp', eid:'eExp', fn:v=>/^\d{2}\/\d{2}$/.test(v), msg:'Enter expiry as MM/YY'},
+    {id:'iCVV', eid:'eCVV', fn:v=>v.length>=3, msg:'Enter 3 or 4 digit CVV'},
   ];
-  let ok = true;
-  fs.forEach(f => {
-    const el = document.getElementById(f.id), err = document.getElementById(f.eid);
-    if (!el || !err) return;
-    const v = f.fn(el.value);
-    el.classList.toggle('err', !v); err.textContent = v ? '' : f.msg;
-    if (!v) ok = false;
+  let ok=true;
+  fs.forEach(f=>{
+    const el=document.getElementById(f.id), err=document.getElementById(f.eid);
+    if(!el||!err) return;
+    const v=f.fn(el.value);
+    el.classList.toggle('err',!v); err.textContent=v?'':f.msg;
+    if(!v) ok=false;
   });
   return ok;
 }
 
-function processPayment() {
-  const activePane = document.querySelector('.m-tab.active').dataset.pane;
-  if (activePane === 'card' && !validateCard()) return;
-  if (activePane === 'wallet' && !selWallet) { showToast('⚠️', 'Select a wallet first'); return; }
-  const btn = document.getElementById('payBtn');
-  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing…';
-  btn.disabled = true;
+function processPayment(){
+  const activePane=document.querySelector('.m-tab.active').dataset.pane;
+  if(activePane==='card'&&!validateCard()) return;
+  if(activePane==='wallet'&&!selWallet){showToast('⚠️','Select a wallet first');return;}
+  const btn=document.getElementById('payBtn');
+  btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Processing…';
+  btn.disabled=true;
   // Simulate gateway response (2s)
-  setTimeout(() => {
-    bData.bookingId = 'CX' + Date.now().toString(36).toUpperCase() + Math.random().toString(36).substr(2, 4).toUpperCase();
-    bData.payMethod = activePane.toUpperCase();
-    bData.payDate = new Date().toISOString();
-    step = 3; renderSteps(); showSuccess();
-  }, 2000);
+  setTimeout(()=>{
+    bData.bookingId='CX'+Date.now().toString(36).toUpperCase()+Math.random().toString(36).substr(2,4).toUpperCase();
+    bData.payMethod=activePane.toUpperCase();
+    bData.payDate=new Date().toISOString();
+    step=3; renderSteps(); showSuccess();
+  },2000);
 }
 
 /* ═══════════════════════════════════
    STEP 3 — SUCCESS
 ═══════════════════════════════════ */
-function showSuccess() {
-  const { movie, seats, grand, bookingId, show } = bData;
-  const date = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
-  const seatIds = seats.map(s => s.id).join(', ');
+function showSuccess(){
+  const {movie,seats,grand,bookingId,show}=bData;
+  const date=new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+  const seatIds=seats.map(s=>s.id).join(', ');
 
-  document.getElementById('modalTitle').textContent = 'Booking Confirmed';
-  document.getElementById('modalEyebrow').textContent = 'BOOKING CONFIRMATION';
-  document.getElementById('modalContent').innerHTML = `
+  document.getElementById('modalTitle').textContent='Booking Confirmed';
+  document.getElementById('modalEyebrow').textContent='BOOKING CONFIRMATION';
+  document.getElementById('modalContent').innerHTML=`
   <div class="succ-view">
     <div class="succ-ring"><i class="fas fa-check"></i></div>
     <div class="succ-title">Payment <em>Successful!</em></div>
@@ -829,7 +784,7 @@ function showSuccess() {
         </div>
         <div class="et-count">
           <div class="et-count-num">${seats.length}</div>
-          <div class="et-count-lbl">SEAT${seats.length > 1 ? 'S' : ''}</div>
+          <div class="et-count-lbl">SEAT${seats.length>1?'S':''}</div>
         </div>
       </div>
       <div class="et-foot">
@@ -851,37 +806,37 @@ function showSuccess() {
   </div>`;
 
   confetti();
-  let sec = 10;
-  cdTimer = setInterval(() => {
-    sec--; const el = document.getElementById('cdSec'); if (el) el.textContent = sec;
-    if (sec <= 0) { clearInterval(cdTimer); cdTimer = null; closeModal(); }
-  }, 1000);
+  let sec=10;
+  cdTimer=setInterval(()=>{
+    sec--; const el=document.getElementById('cdSec'); if(el) el.textContent=sec;
+    if(sec<=0){clearInterval(cdTimer);cdTimer=null;closeModal();}
+  },1000);
 }
 
-function copyBID(id) {
-  navigator.clipboard.writeText(id).catch(() => {
-    const t = document.createElement('textarea'); t.value = id; document.body.appendChild(t); t.select(); document.execCommand('copy'); document.body.removeChild(t);
+function copyBID(id){
+  navigator.clipboard.writeText(id).catch(()=>{
+    const t=document.createElement('textarea');t.value=id;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);
   });
-  showToast('✅', 'Booking ID copied!');
+  showToast('✅','Booking ID copied!');
 }
 
 /* ═══════════════════════════════════
    PRINT TICKET
 ═══════════════════════════════════ */
-function printTicket() {
-  const { movie, seats, grand, bookingId, convFee, gst, ticketPrice, payMethod, payDate, show } = bData;
-  const date = new Date(payDate || Date.now()).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
-  const byType = {};
-  seats.forEach(s => { if (!byType[s.t]) byType[s.t] = []; byType[s.t].push(s.id); });
-  const seatRows = Object.entries(byType).map(([t, ids]) => {
-    const up = t === 'vip' ? movie.price.vip : t === 'prem' ? movie.price.prem : movie.price.reg;
-    return `<tr><td>${t.toUpperCase()} Seats</td><td>${ids.join(', ')}</td><td>${ids.length} × ₹${up}</td><td>₹${ids.length * up}</td></tr>`;
+function printTicket(){
+  const {movie,seats,grand,bookingId,convFee,gst,ticketPrice,payMethod,payDate,show}=bData;
+  const date=new Date(payDate||Date.now()).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  const byType={};
+  seats.forEach(s=>{if(!byType[s.t])byType[s.t]=[];byType[s.t].push(s.id);});
+  const seatRows=Object.entries(byType).map(([t,ids])=>{
+    const up=t==='vip'?movie.price.vip:t==='prem'?movie.price.prem:movie.price.reg;
+    return `<tr><td>${t.toUpperCase()} Seats</td><td>${ids.join(', ')}</td><td>${ids.length} × ₹${up}</td><td>₹${ids.length*up}</td></tr>`;
   }).join('');
-  const chipColors = { reg: '#2d6bc4', prem: '#b5730a', vip: '#c94b7a' };
-  const seatChips = seats.map(s => `<span style="display:inline-block;margin:3px;padding:4px 12px;border-radius:50px;background:${chipColors[s.t]};color:#fff;font-size:.75rem;font-weight:700">${s.id}</span>`).join('');
+  const chipColors={reg:'#2d6bc4',prem:'#b5730a',vip:'#c94b7a'};
+  const seatChips=seats.map(s=>`<span style="display:inline-block;margin:3px;padding:4px 12px;border-radius:50px;background:${chipColors[s.t]};color:#fff;font-size:.75rem;font-weight:700">${s.id}</span>`).join('');
 
-  const w = window.open('', '_blank', 'width=820,height=750,scrollbars=yes');
-  if (!w) { showToast('⚠️', 'Pop-ups blocked — allow pop-ups for this site'); return; }
+  const w=window.open('','_blank','width=820,height=750,scrollbars=yes');
+  if(!w){showToast('⚠️','Pop-ups blocked — allow pop-ups for this site');return;}
   w.document.write(`<!DOCTYPE html>
 <html><head><meta charset="UTF-8"><title>CINEMAX Ticket – ${movie.title}</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Inter:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
@@ -933,8 +888,8 @@ td{padding:9px 10px;border-bottom:1px solid #f1f5f9;font-size:.83rem;color:#0d0d
     <div class="ib"><div class="ib-l">Date</div><div class="ib-v">${date}</div></div>
     <div class="ib"><div class="ib-l">Show Time</div><div class="ib-v">${show}</div></div>
     <div class="ib"><div class="ib-l">Screen</div><div class="ib-v">Screen 1 · Dolby</div></div>
-    <div class="ib"><div class="ib-l">Seats</div><div class="ib-v">${seats.length} Seat${seats.length > 1 ? 's' : ''}</div></div>
-    <div class="ib"><div class="ib-l">Payment</div><div class="ib-v">${payMethod || 'CARD'}</div></div>
+    <div class="ib"><div class="ib-l">Seats</div><div class="ib-v">${seats.length} Seat${seats.length>1?'s':''}</div></div>
+    <div class="ib"><div class="ib-l">Payment</div><div class="ib-v">${payMethod||'CARD'}</div></div>
     <div class="ib"><div class="ib-l">Status</div><div class="ib-v" style="color:#10b981">✔ Confirmed</div></div>
   </div>
   <div class="seats-s">
@@ -969,52 +924,52 @@ td{padding:9px 10px;border-bottom:1px solid #f1f5f9;font-size:.83rem;color:#0d0d
 /* ═══════════════════════════════════
    DOWNLOAD TICKET
 ═══════════════════════════════════ */
-function downloadTicket() {
-  const { movie, seats, grand, bookingId, show } = bData;
-  const blob = new Blob([`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>CINEMAX – ${movie.title}</title></head><body style="font-family:Arial;max-width:600px;margin:2rem auto;padding:2rem;border:2px solid #c9a84c;border-radius:12px"><h1 style="color:#c9a84c">🎬 CINEMAX — E-Ticket</h1><hr><h2>${movie.title}</h2><p>${movie.dur} | ${movie.lang} | ⭐ ${movie.rating}</p><p><strong>Show:</strong> ${show}</p><p><strong>Seats:</strong> ${seats.map(s => s.id).join(', ')}</p><p><strong>Total:</strong> ₹${grand}</p><p><strong>Booking ID:</strong> ${bookingId}</p><p><strong>Date:</strong> ${new Date().toLocaleDateString()}</p><hr><p style="color:#888;font-size:.8rem">Arrive 15 min early. Enjoy the film!</p></body></html>`], { type: 'text/html' });
-  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `CINEMAX-${bookingId}.html`; a.click(); URL.revokeObjectURL(a.href);
-  showToast('✅', 'Ticket downloaded!');
+function downloadTicket(){
+  const {movie,seats,grand,bookingId,show}=bData;
+  const blob=new Blob([`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>CINEMAX – ${movie.title}</title></head><body style="font-family:Arial;max-width:600px;margin:2rem auto;padding:2rem;border:2px solid #c9a84c;border-radius:12px"><h1 style="color:#c9a84c">🎬 CINEMAX — E-Ticket</h1><hr><h2>${movie.title}</h2><p>${movie.dur} | ${movie.lang} | ⭐ ${movie.rating}</p><p><strong>Show:</strong> ${show}</p><p><strong>Seats:</strong> ${seats.map(s=>s.id).join(', ')}</p><p><strong>Total:</strong> ₹${grand}</p><p><strong>Booking ID:</strong> ${bookingId}</p><p><strong>Date:</strong> ${new Date().toLocaleDateString()}</p><hr><p style="color:#888;font-size:.8rem">Arrive 15 min early. Enjoy the film!</p></body></html>`],{type:'text/html'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`CINEMAX-${bookingId}.html`;a.click();URL.revokeObjectURL(a.href);
+  showToast('✅','Ticket downloaded!');
 }
 
 /* ═══════════════════════════════════
    CONFETTI
 ═══════════════════════════════════ */
-function confetti() {
-  const box = document.getElementById('confBox'); box.innerHTML = '';
-  const cols = ['#c9a84c', '#e8c96a', '#ec4899', '#10b981', '#3ecfcf', '#fff', '#8b5cf6'];
-  for (let i = 0; i < 100; i++) {
-    const p = document.createElement('div');
-    const sz = Math.random() * 12 + 4;
-    p.className = 'cp';
-    p.style.cssText = `left:${Math.random() * 100}%;width:${sz}px;height:${sz}px;background:${cols[~~(Math.random() * cols.length)]};border-radius:${Math.random() > .5 ? '50%' : '3px'};animation-duration:${Math.random() * 2.5 + 1.5}s;animation-delay:${Math.random() * .7}s;`;
+function confetti(){
+  const box=document.getElementById('confBox'); box.innerHTML='';
+  const cols=['#c9a84c','#e8c96a','#ec4899','#10b981','#3ecfcf','#fff','#8b5cf6'];
+  for(let i=0;i<100;i++){
+    const p=document.createElement('div');
+    const sz=Math.random()*12+4;
+    p.className='cp';
+    p.style.cssText=`left:${Math.random()*100}%;width:${sz}px;height:${sz}px;background:${cols[~~(Math.random()*cols.length)]};border-radius:${Math.random()>.5?'50%':'3px'};animation-duration:${Math.random()*2.5+1.5}s;animation-delay:${Math.random()*.7}s;`;
     box.appendChild(p);
   }
-  setTimeout(() => box.innerHTML = '', 5000);
+  setTimeout(()=>box.innerHTML='',5000);
 }
 
 /* ═══════════════════════════════════
    TOAST
 ═══════════════════════════════════ */
-function showToast(icon, msg) {
-  if (toastTimer) clearTimeout(toastTimer);
-  const t = document.getElementById('toast');
-  document.getElementById('toastIcon').textContent = icon;
-  document.getElementById('toastMsg').textContent = msg;
+function showToast(icon,msg){
+  if(toastTimer) clearTimeout(toastTimer);
+  const t=document.getElementById('toast');
+  document.getElementById('toastIcon').textContent=icon;
+  document.getElementById('toastMsg').textContent=msg;
   t.classList.add('show');
-  toastTimer = setTimeout(() => t.classList.remove('show'), 3300);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),3300);
 }
 
 /* ═══════════════════════════════════
    EXPERIENCE MODAL (ghost)
 ═══════════════════════════════════ */
-function openExpModal() {
-  document.getElementById('experience').scrollIntoView({ behavior: 'smooth' });
+function openExpModal(){
+  document.getElementById('experience').scrollIntoView({behavior:'smooth'});
 }
 
 /* ═══════════════════════════════════
    INIT
 ═══════════════════════════════════ */
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded',()=>{
   renderFilms();
   renderComing();
   renderOffers();
