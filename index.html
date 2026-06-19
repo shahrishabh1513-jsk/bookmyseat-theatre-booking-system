@@ -1,193 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BOXOFFICE | Premium Cinema Booking</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CINEMAX — Premium Cinema Booking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- Particle Canvas -->
-<canvas id="particles"></canvas>
+  <!-- Ambient grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+  <canvas id="aurora" aria-hidden="true"></canvas>
 
-<!-- Toast -->
-<div class="toast" id="toast">
-  <span class="toast-icon" id="toastIcon"></span>
-  <span class="toast-msg"  id="toastMsg"></span>
-</div>
-
-<!-- Confetti -->
-<div id="confetti"></div>
-
-<!-- ───── NAVBAR ───── -->
-<nav class="navbar" id="navbar">
-  <div class="nav-inner">
-    <div class="logo" onclick="scrollToSection('home')">
-      <div class="logo-icon"><i class="fas fa-film"></i></div>
-      <div class="logo-text">BOX<span>OFFICE</span></div>
+  <!--  NAV  -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-wrap">
+      <a class="nav-logo" href="#">
+        <span class="logo-mark">C</span>
+        <span class="logo-name">CINEMAX</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#movies">Films</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#coming">Coming Soon</a></li>
+        <li><a href="#offers">Offers</a></li>
+      </ul>
+      <div class="nav-end">
+        <button class="icon-pill" id="searchBtn" aria-label="Search">
+          <i class="fas fa-search"></i>
+        </button>
+        <button class="nav-cta" onclick="document.getElementById('movies').scrollIntoView({behavior:'smooth'})">
+          Book Now
+        </button>
+        <button class="hamburger" id="ham">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <!-- Search bar -->
+    <div class="search-drop" id="searchDrop">
+      <input type="text" id="searchInp" placeholder="Search films, genres, languages…" autocomplete="off">
+      <div class="search-hits" id="searchHits"></div>
     </div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home"         class="active">Home</a></li>
-      <li><a href="#now-showing"          >Movies</a></li>
-      <li><a href="#coming-soon"          >Coming Soon</a></li>
-      <li><a href="#offers"               >Offers</a></li>
-      <li><a href="#contact"              >Contact</a></li>
-    </ul>
-    <div class="nav-actions">
-      <button class="icon-btn"><i class="fas fa-search"></i></button>
-      <button class="icon-btn"><i class="fas fa-user-circle"></i></button>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+  </header>
+
+  <!-- Mobile nav -->
+  <div class="mob-nav" id="mobNav">
+    <a href="#movies" onclick="closeMob()">Films</a>
+    <a href="#experience" onclick="closeMob()">Experience</a>
+    <a href="#coming" onclick="closeMob()">Coming Soon</a>
+    <a href="#offers" onclick="closeMob()">Offers</a>
   </div>
-</nav>
 
-<!-- Mobile Nav -->
-<div class="mobile-nav" id="mobileNav">
-  <a href="#home"        onclick="closeMobile()">Home</a>
-  <a href="#now-showing" onclick="closeMobile()">Movies</a>
-  <a href="#coming-soon" onclick="closeMobile()">Coming Soon</a>
-  <a href="#offers"      onclick="closeMobile()">Offers</a>
-  <a href="#contact"     onclick="closeMobile()">Contact</a>
-</div>
+  <!--  HERO  -->
+  <section class="hero" id="hero">
+    <div class="hero-reel" id="heroReel">
+      <!-- poster strip built by JS -->
+    </div>
+    <div class="hero-veil"></div>
+    <div class="hero-body">
+      <p class="hero-eyebrow"><span class="dot-pulse"></span> Now Showing — 20 Films</p>
+      <h1 class="hero-headline">
+        Cinema the<br><em>way it was meant</em><br>to be felt.
+      </h1>
+      <p class="hero-sub">4K Laser · Dolby Atmos · Luxury Recliners · In-Seat Dining</p>
+      <div class="hero-actions">
+        <button class="btn-gold" onclick="document.getElementById('movies').scrollIntoView({behavior:'smooth'})">
+          Browse Films <i class="fas fa-arrow-right"></i>
+        </button>
+        <button class="btn-ghost" onclick="openExpModal()">
+          Our Experience <i class="fas fa-play"></i>
+        </button>
+      </div>
+    </div>
+    <div class="hero-scroll-cue">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
 
-<!-- ───── HERO ───── -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="hero-badge"><i class="fas fa-star"></i> &nbsp;PREMIUM CINEMA EXPERIENCE</div>
-    <h1>Where Stories<br>Come to <em>Life</em></h1>
-    <p class="hero-sub">Immerse yourself in the ultimate cinematic journey — crystal-clear 4K Dolby Vision, thundering DTS:X surround sound, and the most luxurious recliner seats in town.</p>
-    <div class="hero-btns">
-      <a href="#now-showing" class="btn-primary"><i class="fas fa-ticket-alt"></i> Book Now</a>
-      <a href="#coming-soon" class="btn-outline"><i class="fas fa-play-circle"></i> Coming Soon</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-num">4K</span><span class="stat-lab">Dolby Vision</span></div>
-      <div class="stat"><span class="stat-num">DTS:X</span><span class="stat-lab">Surround Sound</span></div>
-      <div class="stat"><span class="stat-num">LUXE</span><span class="stat-lab">Recliner Seats</span></div>
-      <div class="stat"><span class="stat-num">20+</span><span class="stat-lab">Movies Now</span></div>
-    </div>
+  <!--  TICKER  -->
+  <div class="ticker-wrap">
+    <div class="ticker-track" id="tickerTrack"></div>
   </div>
-  <div class="hero-scroll">
-    <div class="scroll-ring"><i class="fas fa-chevron-down"></i></div>
-    <span>Scroll</span>
-  </div>
-</section>
 
-<!-- ───── MARQUEE ───── -->
-<div class="marquee-wrap">
-  <div class="marquee-track" id="marqueeTrack"></div>
-</div>
-
-<!-- ───── NOW SHOWING ───── -->
-<section class="sec-pad" id="now-showing">
-  <div class="container">
-    <div class="sec-head reveal">
-      <h2 class="sec-title">Now <span>Showing</span></h2>
-      <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
-    </div>
-    <div class="filters reveal" id="filters">
-      <button class="filter-btn active" data-cat="all">All Movies</button>
-      <button class="filter-btn" data-cat="bollywood">Bollywood</button>
-      <button class="filter-btn" data-cat="hollywood">Hollywood</button>
-      <button class="filter-btn" data-cat="south">South Indian</button>
-    </div>
-    <div class="movie-grid" id="movieGrid"></div>
-  </div>
-</section>
-
-<!-- ───── COMING SOON ───── -->
-<section class="sec-pad" style="background:var(--bg2)" id="coming-soon">
-  <div class="container">
-    <div class="sec-head reveal">
-      <h2 class="sec-title">Coming <span>Soon</span></h2>
-    </div>
-    <div class="coming-grid reveal" id="comingGrid"></div>
-  </div>
-</section>
-
-<!-- ───── OFFERS ───── -->
-<section class="sec-pad offers-wrap" id="offers">
-  <div class="container">
-    <div class="sec-head reveal">
-      <h2 class="sec-title">Exclusive <span>Offers</span></h2>
-    </div>
-    <div class="offers-grid reveal" id="offersGrid"></div>
-  </div>
-</section>
-
-<!-- ───── FOOTER ───── -->
-<footer class="footer" id="contact">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <div class="fi"><i class="fas fa-film"></i></div>
-          BOX<span>OFFICE</span>
+  <!--  FILMS  -->
+  <section class="section" id="movies">
+    <div class="inner">
+      <div class="section-cap">
+        <div>
+          <p class="label-tag">NOW SHOWING</p>
+          <h2 class="section-title">This Week's <em>Films</em></h2>
         </div>
-        <p class="footer-desc">Redefining the movie experience with state-of-the-art technology, Dolby Atmos sound, and unparalleled comfort across all our premium screens.</p>
-        <div class="social-row">
-          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+        <div class="filter-row">
+          <button class="filt active" data-cat="all">All</button>
+          <button class="filt" data-cat="bollywood">Bollywood</button>
+          <button class="filt" data-cat="hollywood">Hollywood</button>
+          <button class="filt" data-cat="south">South Indian</button>
         </div>
       </div>
-      <div>
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#home"><i class="fas fa-chevron-right"></i>Home</a></li>
-          <li><a href="#now-showing"><i class="fas fa-chevron-right"></i>Now Showing</a></li>
-          <li><a href="#coming-soon"><i class="fas fa-chevron-right"></i>Coming Soon</a></li>
-          <li><a href="#offers"><i class="fas fa-chevron-right"></i>Offers</a></li>
-        </ul>
+
+      <div class="sort-bar">
+        <span class="count-tag" id="countTag"></span>
+        <div class="sort-group">
+          <label>Sort</label>
+          <select id="sortSel">
+            <option value="default">Featured</option>
+            <option value="rating">Top Rated</option>
+            <option value="az">A → Z</option>
+            <option value="seats">Most Available</option>
+          </select>
+        </div>
       </div>
-      <div>
-        <h4>Support</h4>
-        <ul>
-          <li><a href="#"><i class="fas fa-chevron-right"></i>FAQ</a></li>
-          <li><a href="#"><i class="fas fa-chevron-right"></i>Privacy Policy</a></li>
-          <li><a href="#"><i class="fas fa-chevron-right"></i>Terms of Service</a></li>
-          <li><a href="#"><i class="fas fa-chevron-right"></i>Refund Policy</a></li>
-        </ul>
+
+      <div class="film-grid" id="filmGrid"></div>
+    </div>
+  </section>
+
+  <!--  EXPERIENCE  -->
+  <section class="exp-section" id="experience">
+    <div class="exp-left">
+      <p class="label-tag">THE CINEMAX DIFFERENCE</p>
+      <h2 class="section-title">Beyond the<br><em>ordinary screen.</em></h2>
+      <p class="exp-body">We obsess over every detail so that from the moment you walk in, every sense is elevated. This
+        isn't just a movie — it's a total experience.</p>
+      <div class="exp-stats">
+        <div class="exp-stat"><span class="big-num" data-target="4">0</span><span>4K Laser<br>Screens</span></div>
+        <div class="exp-stat"><span class="big-num" data-target="500">0</span><span>Luxury<br>Seats</span></div>
+        <div class="exp-stat"><span class="big-num" data-target="20">0</span><span>Films<br>Showing</span></div>
       </div>
-      <div>
-        <h4>Newsletter</h4>
-        <p class="footer-desc">Get latest updates on new movies &amp; exclusive offers.</p>
-        <div class="newsletter">
-          <input type="email" placeholder="Your email address">
-          <button><i class="fas fa-paper-plane"></i></button>
+    </div>
+    <div class="exp-right">
+      <div class="exp-card-grid">
+        <div class="exp-card">
+          <i class="fas fa-film"></i>
+          <h4>4K Laser Projection</h4>
+          <p>Razor-sharp visuals at 14,000 lumens on screens up to 22 metres wide.</p>
+        </div>
+        <div class="exp-card">
+          <i class="fas fa-headphones"></i>
+          <h4>Dolby Atmos™</h4>
+          <p>Object-based 3D audio with 64 speakers wrapping every seat in sound.</p>
+        </div>
+        <div class="exp-card">
+          <i class="fas fa-couch"></i>
+          <h4>Electric Recliners</h4>
+          <p>Full-flat motorized leather recliners with heated seat and footrest.</p>
+        </div>
+        <div class="exp-card">
+          <i class="fas fa-concierge-bell"></i>
+          <h4>In-Seat Dining</h4>
+          <p>Chef-curated menus ordered on your app and delivered to your seat.</p>
         </div>
       </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 BOXOFFICE. All rights reserved. | The Ultimate Cinema Experience</p>
-    <div class="pay-icons">
-      <i class="fab fa-cc-visa"></i>
-      <i class="fab fa-cc-mastercard"></i>
-      <i class="fab fa-cc-amex"></i>
-      <i class="fab fa-cc-paypal"></i>
-      <i class="fab fa-google-pay"></i>
+  </section>
+
+  <!--  COMING SOON  -->
+  <section class="section dark-section" id="coming">
+    <div class="inner">
+      <div class="section-cap">
+        <div>
+          <p class="label-tag">ON THE HORIZON</p>
+          <h2 class="section-title">Coming <em>Soon</em></h2>
+        </div>
+      </div>
+      <div class="coming-row" id="comingRow"></div>
+    </div>
+  </section>
+
+  <!--  OFFERS -->
+  <section class="section" id="offers">
+    <div class="inner">
+      <div class="section-cap">
+        <div>
+          <p class="label-tag">EXCLUSIVE DEALS</p>
+          <h2 class="section-title">Member <em>Offers</em></h2>
+        </div>
+      </div>
+      <div class="offers-row" id="offersRow"></div>
+    </div>
+  </section>
+
+  <!--  FOOTER  -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="f-logo"><span class="logo-mark">C</span><span class="logo-name">CINEMAX</span></div>
+        <p>Redefining cinema since 2019. Four premium screens. One unforgettable experience.</p>
+        <div class="f-socials">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <a href="#movies">Now Showing</a>
+        <a href="#coming">Coming Soon</a>
+        <a href="#experience">Experience</a>
+        <a href="#offers">Member Offers</a>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <a href="#">Help Centre</a>
+        <a href="#">Cancellation Policy</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+      <div class="footer-col">
+        <h5>Stay Updated</h5>
+        <p style="color:var(--ink3);font-size:.85rem;margin-bottom:1rem">New releases, exclusive previews and member
+          perks — direct to your inbox.</p>
+        <div class="nl-form">
+          <input type="email" id="nlEmail" placeholder="your@email.com">
+          <button onclick="subscribeNL()"><i class="fas fa-arrow-right"></i></button>
+        </div>
+        <p class="nl-ok" id="nlOk"></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CINEMAX. All rights reserved.</span>
+      <div class="pay-accept">
+        <i class="fab fa-cc-visa"></i>
+        <i class="fab fa-cc-mastercard"></i>
+        <i class="fab fa-cc-amex"></i>
+        <i class="fab fa-cc-rupay"></i>
+        <i class="fab fa-google-pay"></i>
+        <i class="fab fa-cc-paypal"></i>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div class="modal-back" id="modalBack">
+    <div class="modal-box" id="modalBox">
+      <div class="modal-top" id="modalTop">
+        <div>
+          <p class="modal-eyebrow" id="modalEyebrow">SELECT SEATS</p>
+          <h3 class="modal-title" id="modalTitle">Book Tickets</h3>
+        </div>
+        <button class="close-btn" id="closeBtn"><i class="fas fa-times"></i></button>
+      </div>
+      <!-- Step progress -->
+      <div class="steps-bar" id="stepsBar"></div>
+      <!-- Dynamic body -->
+      <div class="modal-content" id="modalContent"></div>
     </div>
   </div>
-</footer>
 
-<!-- ───── MODAL ───── -->
-<div class="overlay" id="overlay">
-  <div class="modal" id="modal">
-    <div class="modal-head">
-      <h2 id="modalTitle">Book Tickets</h2>
-      <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="modal-body" id="modalBody"></div>
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <span id="toastIcon"></span>
+    <span id="toastMsg"></span>
   </div>
-</div>
+  <!-- Confetti container -->
+  <div id="confBox"></div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
